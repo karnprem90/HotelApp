@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="defModalHead">Create Account</h4>
+</div>
+<div class="modal-body">
+
+    <div class="page-content-wrap">
+
+                <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Zone Name</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" class="form-control" name="firstName" ng-model="createProfile.zoneName" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/" required>
+                                    </div>
+                                    <span class="error" ng-show="account.firstName.$dirty && account.firstName.$invalid">Invalid:
+                                    <span ng-show="account.firstName.$error.required">Tell us your Zone Name</span>
+                                    <span ng-show="account.firstName.$error.minlength">Zone name should be minimum of 3 characters</span>
+                                    <span ng-show="account.firstName.$error.maxlength">Zone name should be maximum of 25 characters</span>
+                                    <span ng-show="account.firstName.$error.pattern">Zone name will not allow numbers and special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        
+                </form>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary " ng-click="createZone(createProfile)">Create</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>
+
+

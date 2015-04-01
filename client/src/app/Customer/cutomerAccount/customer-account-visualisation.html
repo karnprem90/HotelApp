@@ -1,0 +1,85 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Account Visualisation</h4>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+
+                <table class="table table-striped b-t b-light">
+                    <thead>
+                        <tr>
+                            <th>Prefix</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email Address</th>
+                            <th>Phone Number</th>
+                            <th>Nationality</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span editable-select="acct_list.prefix" e-name="name" e-form="rowform" e-ng-options="title.name as title.name for title in titles" e-required>{{acct_list.prefix}}</span>
+                            </td>
+                            <td>
+                                <span editable-text="acct_list.firstname" e-name="name" e-form="rowform" onbeforesave="checkName($data)" e-required>{{acct_list.firstname}}</span>
+                            </td>
+                            <td>
+                                <span editable-text="acct_list.lastname" e-name="name" e-form="rowform" 
+                                onbeforesave="checkName($data)" e-required>{{acct_list.lastname}}</span>
+                            </td>
+                            <td>
+                                <span editable-text="acct_list.email" e-name="name" e-form="rowform" e-required>{{acct_list.email}}</span>
+                            </td>
+                            <td>
+                                <span editable-text="acct_list.phone" e-name="name" e-form="rowform" onbeforesave="checkPhone($data)" e-required>{{acct_list.phone}}</span>
+                            </td>
+                            <td>
+                                <span editable-text="acct_list.nationality" e-name="name" e-form="rowform" e-required>{{acct_list.nationality}}</span>
+                            </td>
+                            <td style="white-space: nowrap">
+                                <form editable-form name="rowform" onaftersave="saveAccount(acct_list)" ng-show="rowform.$visible" class="form-buttons form-inline">
+                                    <button ng-disabled="rowform.$waiting" class="btn  btn-xs btn-success">
+                                        save
+                                    </button>
+                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn  btn-xs btn-warning">
+                                        cancel
+                                    </button>
+                                </form>
+                                <div class="buttons" ng-show="!rowform.$visible">
+                                    <button class="btn  btn-xs btn-info" ng-click="rowform.$show()">edit</button>
+
+                                    <div class="btn-group dropdown ">
+                                      <button class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" >Change Password</button>
+                                      <ul class="dropdown-menu">
+                                        <form action="" id="form_login" style="margin: 0; padding: 3px 15px">
+                                          <li>
+                                            <div class="form-group" >
+                                              <input type="password" class="form-control" id="exampleInputEmail1" drop-down placeholder="Old Password" ng-model="changepass.oldpassword">
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="form-group">
+                                              <input type="password" class="form-control" id="exampleInputPassword1"  drop-down placeholder="New Password" ng-model="changepass.newpassword">
+                                            </div>
+                                          </li>
+                                          
+                                          <li class="divider"></li>
+                                          <li><button type="submit" class="btn btn-primary btn-block" ng-click="changePwd(changepass)">Change</button></li>
+                                        </form>
+                                      </ul>
+                                    </div>
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

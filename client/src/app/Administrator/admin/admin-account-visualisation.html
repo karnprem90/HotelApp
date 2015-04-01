@@ -1,0 +1,38 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Accounts Visualisation</h4>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered b-t b-light">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <!-- <th>Prefix</th>
+                            <th>Firsrt Name</th>
+                            <th>Last Name</th> -->
+                            <th>Email Address</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{admin_acct._id}}</td>
+                            <!-- <td>{{admin_acct.firstname}}</td>
+                            <td>{{admin_acct.lastname}}</td> -->
+                            <td>{{admin_acct.alertEmail}}</td>
+                            <td>{{admin_acct.alertPhone}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <!-- <div class="panel-footer">
+            <pagination total-items="totalItems" ng-model="currentPage" max-size="5" boundary-links="true" items-per-page="numPerPage" class="pagination-sm m-n"></pagination>
+            <button class="btn btn-primary pull-right" ng-click="addUser()">Add</button>
+        </div> -->
+    </div>
+</div>
+

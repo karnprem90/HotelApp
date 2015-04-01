@@ -1,0 +1,38 @@
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading wrapper b-b b-light">
+                    <h4 class="panel-title font-thin m-t-none m-b-none text-muted">Logistic Agents List </h4>  
+                </div>
+                <div class="panel-body form-group-separated">
+                  <div ng-show="agents_list.length == 0">
+                        <h4>There are no logistic agents</h4>
+                    </div>
+                    <div class="table-responsive" ng-show="agents_list.length > 0">
+                    <table class="table table-bordered table-hover table-condensed">
+                      <thead>
+                        <th>ID</th>
+                        <th>Prefix</th>
+                        <th>First Name</th>
+                        <th>Last NAme</th>
+                        <th>Eamil Address</th>
+                        <th>Phone Number</th>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="user in agents_list">
+                          <td>{{$index+1}}</td>
+                          <td>{{user.prefix}}</td>
+                          <td>{{user.firstname}}</td>
+                          <td>{{user.lastname}}</td>
+                          <td>{{user.email}}</td>
+                          <td>{{user.phone}}</td>
+                        </tr>
+                      </tbody>   
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

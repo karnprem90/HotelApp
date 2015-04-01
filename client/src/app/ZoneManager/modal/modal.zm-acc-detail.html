@@ -1,0 +1,212 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="defModalHead">Account Details</h4>
+</div>
+<div class="modal-body">
+
+    <div class="page-content-wrap">
+        <div class="row">
+            <div action="#" class="form-horizontal">
+                    <div class="panel-body ">
+                        <div class="col-md-4 col-sm-4 col-xs-5">
+                            <h3 class="text-center"><strong>Hotel ID :</strong>{{hotelInfo._id+1}} </h3>
+                            <div class="text-center" id="user_image">
+                                <img src="assets/images/users/user2.jpg" class="img-thumbnail">
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-7">
+                            <h3><strong>{{hotelInfo.name}}</strong></h3>
+                            <!-- INVOICE -->
+                            <div class="invoice">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="invoice-address">
+                                            <p><strong>{{hotelInfo.building}}, {{hotelInfo.street}}, {{hotelInfo.city}} {{hotelInfo.addressCode}} </strong>
+                                            </p>
+                                            <p>{{hotelInfo.region}} - {{hotelInfo.country}}</p>
+                                            <p>Telephone: {{hotelInfo.telephone}}</p>
+                                            <p>Fax: {{hotelInfo.fax}}</p>
+                                            <p>{{hotelInfo.email}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="invoice-address">
+                                            <p><strong>Rating : </strong>**** <a href="#">12 client comments</a>
+                                            </p>
+                                            <p><strong>Business Value :</strong> 440.00 €</p>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="invoice">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="invoice-address">
+                                            <p><strong># Assigned tablets : </strong>20
+                                                <br><span ng-controller="ModalDemoCtrl1" class="ng-scope">
+                                                      <script type="text/ng-template" id="myModalContent1.html">
+                                                        <div ng-include="'app/ZoneManager/modal/modal.zm-acc-tab-details.html'"></div>
+                                                      </script>
+                                                      <a  ng-click="open('lg')">Assign tablets</a>
+                                                    </span>
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="invoice-address">
+                                            <p><strong>Wi-fi Parameters</strong>
+                                            </p>
+                                            <p><strong>SSID:</strong>HotelStGermainWifi
+                                            </p>
+                                            <p><strong>Security :</strong> WPA/WPA2
+                                            </p>
+                                            <p><strong>Password :</strong> Gef6gh56jhj
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END INVOICE -->
+                        </div>
+                    </div>
+
+                    <div class="panel-body form-group-separated">
+                        <div class="col-md-4 col-sm-4 col-xs-5">
+                            <div class="invoice">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="invoice-address">
+                                            <p><strong>Room Status</strong>
+                                            </p>
+
+                                            <p>Contracted: 20</p>
+                                            <p>Equipped: 15</p>
+
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td><span class="fa fa-circle text-success"></span>
+                                                            </td>
+                                                            <td>2</td>
+                                                            <td><span class="fa fa-circle  text-success"></span>
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-7">
+                            <div class="invoice">
+                                <div class="row">
+                                    <div class="col-md-4">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-body profile">
+                                                <div class="profile-image">
+                                                    <img src="assets/images/users/user3.jpg" alt="Nadia Ali">
+                                                </div>
+                                                <div class="profile-data">
+                                                    <div class="profile-data-name">John Snow</div>
+                                                    <div class="profile-data-title">General Manager</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="contact-info">
+                                                    <p><small>Mobile</small>
+                                                        <br>33 (0)6 65 78 45 95</p>
+                                                    <p><small>Email</small>
+                                                        <br>john.snow@signature-saintgermain.com</p>
+                                                    <p><small>Address</small>
+                                                        <br>123 45 Street San Francisco, CA, USA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-body profile">
+                                                <div class="profile-image">
+                                                    <img src="assets/images/users/user3.jpg" alt="Nadia Ali">
+                                                </div>
+                                                <div class="profile-data">
+                                                    <div class="profile-data-name">Samwell Tarly</div>
+                                                    <div class="profile-data-title">Frontdesk staff</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="contact-info">
+                                                    <p><small>Mobile</small>
+                                                        <br>33 (0)1 45 48 35 53</p>
+                                                    <p><small>Email</small>
+                                                        <br>info@signature-saintgermain.com</p>
+                                                    <p><small>Address</small>
+                                                        <br>123 45 Street San Francisco, CA, USA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body profile">
+                                                <div class="profile-image">
+                                                    <img src="assets/images/users/user3.jpg" alt="Nadia Ali">
+                                                </div>
+                                                <div class="profile-data">
+                                                    <div class="profile-data-name">Mance Raider</div>
+                                                    <div class="profile-data-title">Night Watch</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="contact-info">
+                                                    <p><small>Mobile</small>
+                                                        <br>33 (0)1 45 48 35 53</p>
+                                                    <p><small>Email</small>
+                                                        <br>info@signature-saintgermain.com</p>
+                                                    <p><small>Address</small>
+                                                        <br>123 45 Street San Francisco, CA, USA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="cancel()">Cancel</button>
+    <span ng-controller="ModalDemoCtrl1" class="ng-scope">
+      <script type="text/ng-template" id="myModalContent1.html">
+        <div ng-include="'app/ZoneManager/modal/modal.zm-hotel-acc-modify.html'"></div>
+      </script>
+      <button type="button" class="btn btn-Primary" ng-click="open('lg')">Edit</button>
+    </span>
+    
+</div>

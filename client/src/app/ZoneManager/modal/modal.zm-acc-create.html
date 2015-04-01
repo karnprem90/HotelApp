@@ -1,0 +1,430 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="defModalHead">Create Account</h4>
+</div>
+<div class="modal-body">
+
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-5">
+
+                <form  class="form-horizontal" novalidate>
+                    <div class="panel panel-default ">
+                        <div class="panel-heading wrapper b-b b-light">
+                            <h4 class="panel-title text-center font-thin m-t-none m-b-none text-muted"><strong>Hotel ID :</strong>456852951 </h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="text-center" id="user_image">
+                                <img src="assets/images/users/user2.jpg" class="img-thumbnail">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-xs-12">
+                                <button class="btn btn-default btn-block">
+                                  <i class="fa fa-cloud-upload text"></i>
+                                  <span class="text">Upload</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <div class="panel-body ">
+
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-5 control-label"> Enter Login ID</label>
+                                <div class="col-md-6 col-xs-7">
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-5 control-label">Enter Password</label>
+                                <div class="col-md-6 col-xs-7">
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+
+                        </div> -->
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-7">
+                <!-- START TABS -->
+                <form  name="hotelAccount" class="form-horizontal" novalidate>
+
+                    
+
+                        <tabset class="tab-container">
+                            <tab heading="Details">
+                                <div class="scrollable-div1 ">
+
+                                    <!-- <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Id</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="id" ng-model="createHotel.hotel.id" ng-minlength="2" ng-pattern="/^[a-zA-Z0-9& ]*$/" required >
+                                            <span class="error" ng-show="hotelAccount.id.$error.required">Tell us Id</span>
+                                            <span class="error" ng-show="hotelAccount.id.$error.minlength">Id should have atleast 1 character</span>
+                                            <span class="error" ng-show="hotelAccount.id.$error.pattern">Id won't allow special characters</span>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Hotel Name</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="hotelName" ng-model="createHotel.hotel.name" ng-minlength="2" required ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/">
+                                             <span class="error" ng-show="hotelAccount.hotelName.$error.required && submitted">Tell  your Hotel Name</span>
+                                            <span class="error" ng-show="hotelAccount.hotelName.$error.minlength && submitted">Hotel name should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.hotelName.$error.maxlength && submitted">Hotel name should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.hotelName.$error.pattern && submitted">Hotel name won't allow  special characters</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Unit</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control"  name="unit" ng-model="createHotel.hotel.unit" ng-minlength="2" ng-maxlength="10" ng-pattern="/^[a-zA-Z0-9& ]*$/" required>
+                                            <span class="error" ng-show="hotelAccount.unit.$error.required && submitted"> Unit field is required</span>
+                                            <span class="error" ng-show="hotelAccount.unit.$error.minlength && submitted">Unit should be minimum of 1 digit</span>
+                                            <span class="error" ng-show="hotelAccount.unit.$error.maxlength && submitted">Unit should be maximum of 10 digit</span>
+                                            <span class="error" ng-show="hotelAccount.unit.$error.pattern && submitted">Unit won't allow special characters</span>
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Building</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="building" ng-model="createHotel.hotel.building" ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/" required >
+                                             <span class="error" ng-show="hotelAccount.building.$error.required && submitted">Tell us your Building Name</span>
+                                            <span class="error" ng-show="hotelAccount.building.$error.minlength && submitted">Building Name should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.building.$error.maxlength && submitted">Building name should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.building.$error.pattern && submitted">Building name won't allow numbers and special characters</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Street</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="street" ng-model="createHotel.hotel.street" ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/" required >
+                                            <span class="error" ng-show="hotelAccount.street.$error.required && submitted">Street  is required</span>
+                                            <span class="error" ng-show="hotelAccount.street.$error.minlength && submitted">Street should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.street.$error.maxlength && submitted">Street name should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.street.$error.pattern && submitted">Street name won't allow  special characters</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">City</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control"  name="city" ng-model="createHotel.hotel.city" ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/" required >
+                                            <span class="error" ng-show="hotelAccount.city.$error.required && submitted">City name is required</span>
+                                            <span class="error" ng-show="hotelAccount.city.$error.minlength && submitted">City name should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.city.$error.maxlength && submitted">City name should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.city.$error.pattern && submitted">City name won't allow numbers and special characters</span>
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Region</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="region" ng-model="createHotel.hotel.region" ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/" required >
+                                            <span class="error" ng-show="hotelAccount.region.$error.required && submitted">Tell us your Region</span>
+                                            <span class="error" ng-show="hotelAccount.region.$error.minlength && submitted">Region should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.region.$error.maxlength && submitted">Region should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.region.$error.pattern && submitted">Region won't allow numbers and special characters</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-md-3 col-xs-5 control-label">Country</label>
+                                      <div class="col-md-8 col-xs-7">
+                                          <select class="form-control" name="country" ng-model="createHotel.hotel.country" ng-options="country.code as country.name for country in countriesList">
+                                              <option value="">Select Country</option>
+                                          </select>
+                                          <span class="error" ng-show="hotelAccount.country.$error.required && submitted">Select country</span>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Zip Code</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="zipcode" ng-model="createHotel.hotel.addressCode" ng-minlength="6" ng-maxlength="15" ng-pattern=" /^[0-9]+$/ " required>
+                                            <span class="error" ng-show="hotelAccount.zipcode.$error.required && submitted">Zip is required</span>
+                                            <span class="error" ng-show="hotelAccount.zipcode.$error.minlength && submitted">Zip Number should be minimum of 6 digit</span>
+                                            <span class="error" ng-show="hotelAccount.zipcode.$error.maxlength && submitted">Zip Number should be maximum of 15 digit</span>
+                                            <span class="error" ng-show="hotelAccount.zipcode.$error.pattern && submitted">Zip Number should have digits only<span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Telephone</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="phone" ng-model="createHotel.hotel.telephone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                                            <span class="error" ng-show="hotelAccount.phone.$error.required && submitted">Phone is required</span>
+                                            <span class="error" ng-show="hotelAccount.phone.$error.minlength && submitted">Phone Number should be minimum of 10 digit</span>
+                                            <span class="error" ng-show="hotelAccount.phone.$error.maxlength && submitted">Phone Number should be maximum of 12 digit</span>
+                                            <span class="error" ng-show="hotelAccount.phone.$error.pattern && submitted">Phone Number should have digits only<span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Fax</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="fax" ng-model="createHotel.hotel.fax" ng-minlength="6" ng-maxlength="15" ng-pattern=" /^[0-9]+$/ " required>
+                                             <span class="error" ng-show="hotelAccount.fax.$error.required && submitted">Fax Number is required</span>
+                                            <span class="error" ng-show="hotelAccount.fax.$error.minlength && submitted">Fax Number should be minimum of 6 digit</span>
+                                            <span class="error" ng-show="hotelAccount.fax.$error.maxlength && submitted">Fax Number should be maximum of 15 digit</span>
+                                            <span class="error" ng-show="hotelAccount.fax.$error.pattern && submitted">Fax Number should have digits only<span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Email</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="email" ng-model="createHotel.hotel.email" required>
+                                            <span class="error" ng-show="hotelAccount.email.$error.required && submitted">Email Field is required</span>
+                                            <span class="error" ng-show="hotelAccount.email.$error.email  && submitted">Tell us your Valid Email</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Category</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="category" ng-model="createHotel.hotel.category" ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/" required>
+                                            <span class="error" ng-show="hotelAccount.category.$error.required && submitted">Category is required</span>
+                                            <span class="error" ng-show="hotelAccount.category.$error.minlength && submitted">Category should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.category.$error.maxlength && submitted">Category should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.category.$error.pattern && submitted">Category won't allow  special characters</span>
+                                        </div>
+                                    </div>
+
+                                   <!--  <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Salutation</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <select class="form-control ">
+                                                <option>1 Star</option>
+                                                <option>2 Star</option>
+                                                <option>3 Star</option>
+                                                <option>4 Star</option>
+                                                <option>5 Star</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+
+
+                                </div>
+                            </tab>
+                            <tab heading="Manager">
+                                <div class="scrollable-div1 ">
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Salutation</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <select class="form-control "  ng-model="createHotel.hotelManager.prefix" required>
+                                                <option value="">Select Salutation</option>
+                                                <option value="Mr">Mr.</option>
+                                                <option value="Ms">Ms.</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">First Name</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="hmfirstName" ng-model="createHotel.hotelManager.firstname" ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" required>
+                                            <span class="error" ng-show="hotelAccount.hmfirstName.$error.required && submitted">Tell us your First Name</span>
+                                            <span class="error" ng-show="hotelAccount.hmfirstName.$error.minlength && submitted">First name should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.hmfirstName.$error.maxlength && submitted">First name should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.hmfirstName.$error.pattern && submitted">First name won't allow numbers and special characters</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Last Name</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="hmlastName" ng-model="createHotel.hotelManager.lastname" required ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                            <span class="error" ng-show="hotelAccount.hmlastName.$error.required && submitted">Tell us your Last Name</span>
+                                            <span class="error" ng-show="hotelAccount.hmlastName.$error.minlength && submitted">Last name should be minimum of 3 characters</span>
+                                            <span class="error" ng-show="hotelAccount.hmlastName.$error.maxlength && submitted">Last name should be maximum of 25 characters</span>
+                                            <span class="error" ng-show="hotelAccount.hmlastName.$error.pattern && submitted">Last name won't allow numbers and special characters</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Title</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div> -->
+
+                                    <!-- <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Preferred Language</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div> -->
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Telephone</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="hmphone" ng-model="createHotel.hotelManager.phone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                                            <span class="error" ng-show="hotelAccount.hmphone.$error.required && submitted">Phone is required</span>
+                                            <span class="error" ng-show="hotelAccount.hmphone.$error.minlength && submitted">Phone Number should be minimum of 10 digit</span>
+                                            <span class="error" ng-show="hotelAccount.hmphone.$error.maxlength && submitted">Phone Number should be maximum of 12 digit</span>
+                                            <span class="error" ng-show="hotelAccount.hmphone.$error.pattern && submitted">Phone Number should have digits only<span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Email</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="text" class="form-control" name="hmemail" ng-model="createHotel.hotelManager.email" required>
+                                            <span class="error" ng-show="hotelAccount.hmemail.$error.required && submitted">Email Field is required</span>
+                                            <span class="error" ng-show="hotelAccount.hmemail.$error.email && submitted">Tell us your Valid Email</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Prefered Language</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <select class="form-control" name="hmlanguage" ng-model="createHotel.hotelManager.preferedLanguage" ng-options="language.code as language.language for language in languagesList" required>
+                                                    <option value="">Select Language</option>
+                                            </select>
+                                            <span class="error" ng-show="hotelAccount.hmlanguage.$error.required && submitted">Select Language</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </tab>
+                            <tab heading="Contact">
+                                <button class="btn btn-default" ng-click="newContact()">Add</button>
+                                <accordion close-others="oneAtATime" ng-repeat="cont in contacts track by $index" >
+                                    <accordion-group heading="New Contact" is-open="field.isFirstOpen" is-disabled="field.isFirstDisabled">
+
+                                        <div class="scrollable-div1  ">
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-5 control-label">Salutation</label>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <select class="form-control" ng-model="cont.prefix" name="huprefix" required>
+                                                        <option value="">Select Salutation</option>
+                                                        <option value="Mr">Mr.</option>
+                                                        <option value="Ms">Ms.</option>
+                                                    </select>
+                                                    <span class="error" ng-show="hotelAccount.huprefix.$error.required && submitted">Select salutation</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-5 control-label">First Name</label>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <input type="text" class="form-control" name="hufirstName" ng-model="cont.firstname" ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" required>
+                                                    <span class="error" ng-show="hotelAccount.hufirstName.$error.required && submitted">Tell us your First Name</span>
+                                                    <span class="error" ng-show="hotelAccount.hufirstName.$error.minlength && submitted">First name should be minimum of 3 characters</span>
+                                                    <span class="error" ng-show="hotelAccount.hufirstName.$error.maxlength && submitted">First name should be maximum of 25 characters</span>
+                                                    <span class="error" ng-show="hotelAccount.hufirstName.$error.pattern && submitted">First name won't allow numbers and special characters</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-5 control-label">Last Name</label>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <input type="text" class="form-control" name="hulastName" ng-model="cont.lastname" required ng-minlength="2" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                                    <span class="error" ng-show="hotelAccount.hulastName.$error.required && submitted">Tell us your Last Name</span>
+                                                    <span class="error" ng-show="hotelAccount.hulastName.$error.minlength && submitted">Last name should be minimum of 3 characters</span>
+                                                    <span class="error" ng-show="hotelAccount.hulastName.$error.maxlength && submitted">Last name should be maximum of 25 characters</span>
+                                                    <span class="error" ng-show="hotelAccount.hulastName.$error.pattern && submitted">Last name won't allow numbers and special characters</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-5 control-label">Title</label>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <input type="text" class="form-control" ng-model="cont.title">
+                                                </div>
+                                            </div>
+                                           <!--  <div class="form-group">
+                                                <label class="col-md-3 col-xs-5 control-label">Preferred Language</label>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-5 control-label">Telephone</label>
+                                                <div class="col-md-8 col-xs-7">
+                                                     <input type="text" class="form-control" name="huphone"  ng-model="cont.phone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                                                    <span class="error" ng-show="hotelAccount.huphone.$error.required && submitted">Phone is required</span>
+                                                    <span class="error" ng-show="hotelAccount.huphone.$error.minlength && submitted">Phone Number should be minimum of 10 digit</span>
+                                                    <span class="error" ng-show="hotelAccount.huphone.$error.maxlength && submitted">Phone Number should be maximum of 12 digit</span>
+                                                    <span class="error" ng-show="hotelAccount.huphone.$error.pattern && submitted">Phone Number should have digits only<span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-5 control-label">Email</label>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <input type="text" class="form-control" name="huemail" ng-model="cont.email" required>
+                                                    <span class="error" ng-show="hotelAccount.huemail.$error.required && submitted">Email Field is required</span>
+                                                    <span class="error" ng-show="hotelAccount.huemail.$error.email 
+                                                    && submitted ">Tell us your Valid Email</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                              <label class="col-md-3 col-xs-5 control-label">Prefered Language</label>
+                                              <div class="col-md-8 col-xs-7">
+                                                  <select class="form-control" name="hulanguage" ng-model="cont.preferedLanguage" ng-options="language.code as language.language for language in languagesList" required>
+                                                          <option value="">Select Language</option>
+                                                  </select>
+                                                  <span class="error" ng-show="hotelAccount.hulanguage.$error.required && submitted">Select Language</span>
+                                              </div>
+                                          </div>
+                                        </div>
+
+                                    </accordion-group>
+                                </accordion>
+                                
+                            </tab>
+                            <tab heading="Rooms">
+                                <div class="scrollable-div1  ">
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label"># Rooms</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Contracted Rooms</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Name of Rooms</label>
+                                        <div class="col-md-8 col-xs-7">
+                                            <select class="form-control " multiple="">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-5 control-label">Assigned Tablets</label>
+                                        <div class="col-md-5 col-xs-7">
+                                            <p>15</p>
+                                        </div>
+
+                                        <div class="col-md-4 col-xs-7">
+                                            <a href="#">Assign tablets</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </tab>
+
+
+                        </tabset>
+                    
+                    <!-- END TABS -->
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+    <button type="button" class="btn btn-Primary" data-dismiss="modal" ng-click="createHotelAccount(createHotel)">Save</button>
+</div>

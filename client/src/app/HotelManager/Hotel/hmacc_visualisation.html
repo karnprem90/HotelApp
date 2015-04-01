@@ -1,0 +1,109 @@
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Profile Information</h4>
+        </div>
+        <form class="form-horizontal ng-pristine ng-valid" name="userAccount" novalidate>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Manager First Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="firstName" ng-model="acct_list.firstname" ng-minlength="3" ng-maxlength="25" 
+                            ng-pattern="/^[a-zA-Z& ]*$/" required>
+                        </div>
+                        <span class="error" ng-show="userAccount.firstName.$invalid && submit">Invalid:
+                            <span ng-show="userAccount.firstName.$error.required">Tell us your First Name</span>
+                            <span ng-show="userAccount.firstName.$error.minlength">First name should be minimum of 3 characters</span>
+                            <span ng-show="userAccount.firstName.$error.maxlength">First name should be maximum of 25 characters</span>
+                            <span ng-show="userAccount.firstName.$error.pattern">First name will not allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label"> Manager Last Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="lastName" ng-model="acct_list.lastname" required ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z& ]*$/">
+                        </div>
+                        <span class="error" ng-show="userAccount.lastName.$invalid && submit">Invalid:
+                            <span ng-show="userAccount.lastName.$error.required">Tell us your Last Name</span>
+                            <span ng-show="userAccount.lastName.$error.minlength">Last name should be minimum of 3 characters</span>
+                            <span ng-show="userAccount.lastName.$error.maxlength">Last name should be maximum of 25 characters</span>
+                            <span ng-show="userAccount.lastName.$error.pattern">Last name will not allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Manager Phone No.</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-mobile"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="mobile" ng-model="acct_list.phone" ng-minlength="9" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="userAccount.mobile.$invalid && submit">Invalid:
+                            <span ng-show="userAccount.mobile.$error.required">Phone is required</span>
+                            <span ng-show="userAccount.mobile.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                            <span ng-show="userAccount.mobile.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                            <span ng-show="userAccount.mobile.$error.pattern">Phone Number should have digits only</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Manager Email Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="email" class="form-control" name="email" ng-model="acct_list.email" ng-disabled="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Prefered Language</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-bullhorn"></span></span>
+                            <select class="form-control" name="language" ng-model="acct_list.preferedLanguage" ng-options="language.code as language.language for language in languagesList" required ng-disabled="true">
+                                <option value="">Select Language</option>
+                            </select>
+                        </div>
+                        <span class="error" ng-show="userAccount.language.$error.required && submit">Select Language</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <button class="btn btn-default">Reset</button>
+                <button class="btn btn-info pull-right" ng-click="updateHotelMgrAccount(acct_list, userAccount.$valid)">Update</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wrapper-md">
+    <div class="panel panel-default  m-b-s">
+        <div class="panel-heading">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Change Password</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <p>
+                    <div ng-include="'app/HotelManager/Hotel/modal.hotel-manager-password.html'"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

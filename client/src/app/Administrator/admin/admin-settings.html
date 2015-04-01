@@ -1,0 +1,157 @@
+
+<div class="bg-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Notify to</h1>
+</div>
+<div class="wrapper-md ng-scope">
+    <div class="row">
+        <div class="col-md-7 col-xs-12">
+
+            <div class="panel panel-default  m-b-s">
+                <div class="panel-heading">
+                    <h4>Send Alert</h4>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6" style="margin:27px">
+                      <div class="panel panel-default">
+                        <div class="panel-heading font-bold">Send Alerts to these mail address</div>
+                        <div class="panel-body">
+                          <form role="form" class="ng-pristine ng-valid">
+                            <div class="form-group">
+                                <select class="form-control " ng-model="alertEmail" ng-options="email as email for email in  admin_acct.alertEmail" multiple >
+                                </select>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div ng-include="'app/Administrator/admin/settings-alerts/email-popup.html'"></div>
+                        <button type="submit" class="btn btn-danger pull-right" ng-click="removeEmail(alertEmail)">Remove</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6" style="margin:27px">
+                      <div class="panel panel-default">
+                        <div class="panel-heading font-bold">Send Alerts to these Phone numbers</div>
+                        <div class="panel-body">
+                          <form role="form" class="ng-pristine ng-valid">
+                            <div class="form-group">
+                                <select class="form-control "  ng-model="alertPhone" ng-options="phone as phone for phone in  admin_acct.alertPhone" multiple>
+                                </select>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div ng-include="'app/Administrator/admin/settings-alerts/phone-popup.html'"></div>
+                        <button type="submit" class="btn btn-danger pull-right" ng-click="removePhone(alertPhone)">Remove</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-10 col-sm-2 pull-right" style="margin:20px">
+                        <button class="btn btn-info " ng-click="updateAdminInfo(admin_acct)">Update</button>   
+                    </div> 
+                </div>
+
+                <!-- <div class="panel-body">
+
+
+
+
+                    <div class="form-group">
+                        <label class="control-label">To Email address</label>
+                        <select class="form-control " ng-model="alertEmail" ng-options="email as email for email in  admin_acct.alertEmail" multiple >
+                        </select>
+                    </div>
+                    <p>
+                        <button type="submit" class="btn btn-default "> Add </button>
+                        <button type="submit" class="btn btn-danger pull-right">Remove</button>
+                    </p>
+                    <div class="form-group  ">
+                        <label class="control-label">To Phone Number</label>
+                        <select class="form-control "  ng-model="alertPhone" ng-options="phone as phone for phone in  admin_acct.alertPhone" multiple>
+                        </select>
+                    </div>
+                    <p>
+                        <button type="submit" class="btn btn-default "> Add </button>
+                        <button type="submit" class="btn btn-danger pull-right">Remove</button>
+                    </p>
+                    <p class="m-t-xl">
+                        <button type="submit" class="btn btn-info btn-block">Change Password</button>
+                    </p>
+
+                </div> -->
+
+            </div>
+
+        </div>
+        <div class="col-md-5 col-xs-12">
+            <div class="panel panel-default  m-b-s">
+                <div class="panel-heading">
+                    <h4>Change Password</h4>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
+                            <div ng-include="'app/Administrator/admin/change-password.html'"></div>
+                        </p>
+                    </div>
+                </div>
+               <!--  <div class="row">
+                    <div class="col-sm-6" style="margin:27px">
+                      <div class="panel panel-default">
+                        <div class="panel-heading font-bold">Send Alerts to these Phone numbers</div>
+                        <div class="panel-body">
+                          <form role="form" class="ng-pristine ng-valid">
+                            <div class="form-group  ">
+                                <label class="control-label">To Phone Number</label>
+                                <select class="form-control "  ng-model="alertPhone" ng-options="phone as phone for phone in  admin_acct.alertPhone" multiple>
+                                </select>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                                <button type="submit" class="btn btn-default alertBtn"> Add </button>
+                                <button type="submit" class="btn btn-danger pull-right">Remove</button>
+                    </div>
+                </div> -->
+
+                <!-- <div class="panel-body">
+
+
+
+
+                    <div class="form-group">
+                        <label class="control-label">To Email address</label>
+                        <select class="form-control " ng-model="alertEmail" ng-options="email as email for email in  admin_acct.alertEmail" multiple >
+                        </select>
+                    </div>
+                    <p>
+                        <button type="submit" class="btn btn-default "> Add </button>
+                        <button type="submit" class="btn btn-danger pull-right">Remove</button>
+                    </p>
+                    <div class="form-group  ">
+                        <label class="control-label">To Phone Number</label>
+                        <select class="form-control "  ng-model="alertPhone" ng-options="phone as phone for phone in  admin_acct.alertPhone" multiple>
+                        </select>
+                    </div>
+                    <p>
+                        <button type="submit" class="btn btn-default "> Add </button>
+                        <button type="submit" class="btn btn-danger pull-right">Remove</button>
+                    </p>
+                    <p class="m-t-xl">
+                        <button type="submit" class="btn btn-info btn-block">Change Password</button>
+                    </p>
+
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+
+</div>

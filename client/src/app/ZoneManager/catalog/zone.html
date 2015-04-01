@@ -1,0 +1,53 @@
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wrapper-md">
+  <div class="panel panel-default">
+    <div class="panel-heading wrapper b-b b-light">
+        <h4 class="font-thin m-t-none m-b-none text-muted">Zone Catalog</h4>
+    </div>
+    <div class="panel-body">
+    	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    		<h4>Categories and Sub-Categories</h4>
+    	</div>
+    	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    		<div class="panel">
+		        <div class="panel-body scrollable">
+			        <div >
+			        	<accordion close-others="true">
+							    <accordion-group ng-repeat="cat in categoryList" ng-click="getSubCategoryList(cat._id)" is-open="cat.open">
+								    <accordion-heading >
+        					            <i class="pull-left fa" ng-class="{'fa-minus': cat.open, 'fa-plus': !cat.open}"></i> {{cat.categoryNames}} 
+        					        </accordion-heading>
+					               <ul ng-repeat="sc in subCategoryList" ng-show="subCategoryList.length > 0">
+                                        <li>{{sc.subCategoryName}}</li>
+                                   </ul>
+                                   <div ng-show="subCategoryList.length == 0">There are no sub-categories under this category</div>
+							  </accordion>
+			        </div>
+		        	
+		        </div>
+		  	</div>
+    	</div>
+    	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    		<div class="row">
+    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    				<div class="pull-right">Category</div>
+    			</div> 
+    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    				<div ng-include="'app/ZoneManager/catalog/newCategory.html'"></div>
+    				<button class="btn btn-info btn-xs"	ng-click="createCategory('md')">New</button>
+    				<button class="btn btn-danger btn-xs"	ng-click="removeCategory">Remove</button>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    				<div class="pull-right">Sub-category</div>
+    			</div>
+    			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    				<div ng-include="'app/ZoneManager/catalog/newSubCategory.html'"></div>
+    				<button class="btn btn-info btn-xs"	ng-click="createSubCategory('md')">New</button>
+    				<button class="btn btn-danger btn-xs"	ng-click="removeSubCategory">Remove</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>

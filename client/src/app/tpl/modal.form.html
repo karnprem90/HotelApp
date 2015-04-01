@@ -1,0 +1,34 @@
+<div class="modal-body wrapper-md">
+  <div class="row">
+    <div class="col-sm-12 ">
+      <h3 class="m-t-none m-b font-thin">Reason for Declining Enquiry:</h3>
+      <p>Please provide your reason and let the buyer know why you are declining this enquiry</p>
+      <form role="form">
+        <div class="form-group">
+          <select  class="form-control" ng-model="enquiry">
+            <option value="1">Budget too low</option>
+            <option value="2">Others</option>
+          </select>
+        </div>
+
+        
+          <textarea class="form-control" ng-if="enquiry==2" placeholder="optional text here"></textarea>
+       
+        
+        <div class="checkbox m-t-lg">
+          <button type="submit" class="btn btn-sm btn-success text-uc m-t-n-xs" ng-click="ok()"><strong>Submit</strong></button>
+          <button type="cancel" class="btn btn-sm btn-danger  text-uc m-t-n-xs" ng-click="ok()"><strong>Cancel</strong></button>
+          
+        </div>
+      </form>
+    </div>
+    <!-- <div class="col-sm-6">
+      <h4>Not a member?</h4>
+      <p>You can create an account <a href class="text-info">here</a></p>
+      <p>OR</p>
+      <a href class="btn btn-primary btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a>
+      <a href class="btn btn-info btn-block m-b-sm"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a>
+      <a href class="btn btn-danger btn-block"><i class="fa fa-google-plus pull-left"></i>Sign in with Google+</a>
+    </div> -->
+  </div>
+</div>

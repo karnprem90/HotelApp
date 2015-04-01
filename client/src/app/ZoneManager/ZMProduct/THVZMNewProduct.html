@@ -1,0 +1,145 @@
+
+<div class="app-content-body fade-in-up ng-scope" ng-init="getProductList()">
+    <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
+        <!-- right col -->
+        <div class="col w bg-light dker bg-auto">
+            <div class="panel panel-default">
+
+                <div class="input-group">
+                    <span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control input-sm ng-pristine ng-valid ng-touched" placeholder="search" ng-model="query">
+                </div>
+
+                <div class="panel-body faq">
+                    
+                    <!-- <accordion close-others="oneAtATime">
+                        <accordion-group is-open="status.open">
+                            <accordion-heading class="faq-title">I can have markup, too! <i class="pull-right fa" ng-class="{'fa fa-angle-down': status.open, 'fa fa-angle-right': !status.open}"></i>
+                            </accordion-heading>
+                            This is just some content to illustrate fancy headings.
+                        </accordion-group>
+                    </accordion>
+ -->
+
+                    <div class="faq-item">
+                        <div class="faq-title"><span class="fa fa-angle-down"></span>Beauty et Perfumes</div>
+                        <div class="faq-text">
+                            <ul class="nav nav-list tree" style="display: block;">
+                                <h5><a href="#"><p>Perfumes women</p></a></h5>
+                                <h5><a href="#">Eau de parfums</a></h5>
+                                <h5><a href="#">Perfumes women</a></h5>
+                                <h5><a href="#">Perfumes men</a></h5>
+                                <h5><a href="#">Eau de toilette women</a></h5>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-title"><span class="fa fa-angle-down"></span>Toys and games</div>
+                        <div class="faq-text">
+                            <h5>Cras ac odio faucibus tortor pretium</h5>
+
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-title"><span class="fa fa-angle-down"></span>Healthn Boday care</div>
+                        <div class="faq-text">
+                            <h5>Aliquam at ipsum sapien</h5>
+
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-title"><span class="fa fa-angle-down"></span>Books</div>
+                        <div class="faq-text">
+                            <h5>Pellentesque sagittis pulvinar</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- right col -->
+
+        <div class="wrapper-md">
+            <div class="panel panel-default">
+                <div class="panel-heading wrapper b-b b-light">
+                    <ul class="nav nav-pills pull-right">
+                        <li>
+                          <span class="ng-scope"> 
+                            <script type="text/ng-template" id="myModalContent.html">
+                              <div ng-include="'app/ZoneManager/modal/modal.zm-create-product.html'"></div>
+                            </script>
+                            <button class="btn btn-primary pull-right m-r-sm" ng-click="Add('lg')">Add</button>
+                          </span>
+                        </li>
+                    </ul>
+                    <h4 class="font-thin m-t-none m-b-none text-muted">Product Details</h4>
+                </div>
+                <div class="panel-body">
+                   <div class="panel panel-default">
+    <!-- <div class="row wrapper">
+      <div class="col-sm-5 m-b-xs">
+        <select class="input-sm form-control w-sm inline v-middle">
+          <option value="0">Bulk action</option>
+          <option value="1">Delete selected</option>
+          <option value="2">Bulk edit</option>
+          <option value="3">Export</option>
+        </select>
+        <button class="btn btn-sm btn-default">Apply</button>                
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div> -->
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th>Images</th>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Retail Price</th>
+            <th>Cost Price</th>
+            <th>Vat Percent</th>
+            <th>Stock</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product_detail in product_details">
+            <td ng-repeat="images in product_detail.images"><img data-ng-src="{{images}}" src="{{images}}"/></td>
+            <td>{{product_detail._id}}</td>
+            <td>{{product_detail.name}}</td>
+            <td>{{product_detail.retailPrice}}</td>
+            <td>{{product_detail.costPrice}}</td>
+            <td>{{product_detail.vatPercent}}</td>
+            <td>{{product_detail.stock}}</td>
+            <td><span class="ng-scope">
+                <script type="text/ng-template" id="myModalContent1.html">
+                  <div ng-include="'app/ZoneManager/modal/modal.zm-product-modify-details.html'"></div>
+                </script>
+                <button class="btn  btn-xs btn-info" ng-click="Edit('lg',$index)">Edit Product Info</button>
+                </span><button class="btn  btn-xs btn-danger" ng-click="removeProduct($index,product_detail._id)">Delete</button>
+               
+            </td>
+           </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+            </div>
+        </div>
+    </div>
+                </div>
+
+
+</div>

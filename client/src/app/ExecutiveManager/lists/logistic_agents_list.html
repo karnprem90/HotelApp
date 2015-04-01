@@ -1,0 +1,80 @@
+<div class="wrapper-md">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+          <h4 class="panel-title font-thin m-t-none m-b-none text-muted">Logistic agents List </h4>  
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3">
+              <select class="form-control" ng-model="selectedZone" ng-options="c._id as c.zoneName for c in zones" class="col-sm-11">
+                <option value="">Select Zone</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" ng-click="getAgentsList(selectedZone)">Check</button>
+          </div>
+        </div>
+        <div class="panel-body form-group-separated">
+          <div class="table-responsive" >
+            <div ng-show="agents_list.length == 0">
+              <h4>There are no logistic agents in this zone</h4>
+            </div>
+            <table class="table table-bordered" ng-show="agents_list.length > 0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Prefix</th>
+                  <th>First Name</th>
+                  <th>Last Name</th> 
+                  <th>Email Address</th>
+                  <th>Telephone</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="user in agents_list">
+                  <td>{{$index+1}}</td>
+                  <td>
+                    <span editable-select="user.prefix" e-name="prefix" e-form="rowform" e-ng-options="title.name as title.name for title in titles" e-required>{{user.prefix}}</span>
+                  </td>
+                  <td>
+                    <span editable-text="user.firstname" e-name="fname" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
+                      {{ user.firstname}}
+                    </span>
+                  </td>
+                  <td>
+                    <span editable-text="user.lastname" e-name="lname" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
+                      {{ user.lastname}}
+                    </span>
+                  </td>
+                  <td>
+                      <span editable-text="user.email" e-name="email" e-form="rowform" e-required>{{user.email}}</span>
+                  </td>
+                  <td>
+                      <span editable-text="user.phone" e-name="phone" e-form="rowform" onbeforesave="checkPhone($data)" e-required>{{user.phone}}</span>
+                  </td>
+                  <td style="white-space: nowrap">
+                    <form editable-form name="rowform" onbeforesave="updateLogisticAgentDetails(user)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
+                      <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-info btn-xs">
+                        update
+                      </button>
+                      <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default btn-xs">
+                        cancel
+                      </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                      <button class="btn btn-primary btn-xs" ng-click="rowform.$show()">edit</button>
+                      <!-- <button class="btn btn-danger" ng-click="removeUser($index)">del</button> -->
+                    </div>  
+                  </td>
+                </tr>
+              </tbody>
+            </table> 
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+

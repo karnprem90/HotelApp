@@ -1,0 +1,31 @@
+<script type="text/ng-template" id="categoryModal.html">
+    <div class="modal-header">
+        <h4 class="modal-title" id="categoryModal1">Create Category</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal ng-pristine ng-valid" name="categoryModal" novalidate>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Category Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="category" ng-model="category.categoryName" ng-minlength="3" required>
+                        </div>
+                        <span class="error" ng-show="categoryModal.category.$invalid && submitted">Invalid:
+                            <span ng-show="categoryModal.category.$error.required">Tell us Category name</span>
+                            <span ng-show="categoryModal.category.$error.minlength">Category name should be minimum of 3 characters</span>
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+        <button class="btn btn-primary"  ng-click="create(category, categoryModal.$valid)" >Create</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+

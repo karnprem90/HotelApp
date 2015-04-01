@@ -1,0 +1,208 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Hotel Account Creation</h4>
+        </div>
+        <form class="form-horizontal ng-pristine ng-valid" name="hotelAccount" novalidate>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Id</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="text" class="form-control" name="id" ng-model="createProfile.id" ng-minlength="1" ng-pattern="/^[a-zA-Z0-9& ]*$/" required />
+                        </div>
+                        <span class="error" ng-show="hotelAccount.id.$dirty && hotelAccount.id.$invalid">Invalid:
+                            <span ng-show="hotelAccount.id.$error.required">Tell us Id</span>
+                        <span ng-show="hotelAccount.id.$error.minlength">Id should have atleast 1 character</span>
+                        <span ng-show="hotelAccount.id.$error.pattern">Id won't allow special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Hotel Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-university"></span></span>
+                            <input type="text" class="form-control" name="hotelName" ng-model="createProfile.name" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.hotelName.$dirty && hotelAccount.hotelName.$invalid">Invalid:
+                            <span ng-show="hotelAccount.hotelName.$error.required">Tell  your Hotel Name</span>
+                        <span ng-show="hotelAccount.hotelName.$error.minlength">Hotel name should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.hotelName.$error.maxlength">Hotel name should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.hotelName.$error.pattern">Hotel name won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Unit</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="unit" ng-model="createProfile.unit" ng-minlength="1" ng-maxlength="10" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.unit.$dirty && hotelAccount.unit.$invalid">Invalid:
+                            <span ng-show="hotelAccount.unit.$error.required"> Unit field is required</span>
+                        <span ng-show="hotelAccount.unit.$error.minlength">Unit should be minimum of 1 digit</span>
+                        <span ng-show="hotelAccount.unit.$error.maxlength">Unit should be maximum of 10 digit</span>
+                        <span ng-show="hotelAccount.unit.$error.pattern">Unit should should have digits only</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Building</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-building"></span></span>
+                            <input type="text" class="form-control" name="building" ng-model="createProfile.building" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.building.$dirty && hotelAccount.building.$invalid">Invalid:
+                            <span ng-show="hotelAccount.building.$error.required">Tell us your Building Name</span>
+                        <span ng-show="hotelAccount.building.$error.minlength">Building Name should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.building.$error.maxlength">Building name should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.building.$error.pattern">Building name won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Street</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="street" ng-model="createProfile.street" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.street.$dirty && hotelAccount.street.$invalid">Invalid:
+                            <span ng-show="hotelAccount.street.$error.required">Street  is required</span>
+                        <span ng-show="hotelAccount.street.$error.minlength">Street should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.street.$error.maxlength">Street name should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.street.$error.pattern">Street name won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">City</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="city" ng-model="createProfile.city" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.city.$dirty && hotelAccount.city.$invalid">Invalid:
+                            <span ng-show="hotelAccount.city.$error.required">City name is required</span>
+                        <span ng-show="hotelAccount.city.$error.minlength">City name should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.city.$error.maxlength">City name should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.city.$error.pattern">City name won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Region</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="region" ng-model="createProfile.region" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.region.$dirty && hotelAccount.region.$invalid">Invalid:
+                            <span ng-show="hotelAccount.region.$error.required">Tell us your Region</span>
+                        <span ng-show="hotelAccount.region.$error.minlength">Region should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.region.$error.maxlength">Region should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.region.$error.pattern">Region won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Country</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="country" ng-model="createProfile.country" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.country.$dirty && hotelAccount.country.$invalid">Invalid:
+                            <span ng-show="hotelAccount.country.$error.required">Tell us your Country Name</span>
+                        <span ng-show="hotelAccount.country.$error.minlength">Country Name should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.country.$error.maxlength">Country Name should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.country.$error.pattern">Country won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">ZipCode</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-chain"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="zipcode" ng-model="createProfile.addressCode" ng-minlength="6" ng-maxlength="15" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.zipcode.$dirty && hotelAccount.zipcode.$invalid">Invalid:
+                            <span ng-show="hotelAccount.zipcode.$error.required">Zip is required</span>
+                        <span ng-show="hotelAccount.zipcode.$error.minlength">Zip Number should be minimum of 6 digit</span>
+                        <span ng-show="hotelAccount.zipcode.$error.maxlength">Zip Number should be maximum of 15 digit</span>
+                        <span ng-show="hotelAccount.zipcode.$error.pattern">Zip Number should have digits only<span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Fax</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-fax"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="fax" ng-model="createProfile.fax" ng-minlength="6" ng-maxlength="15" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.fax.$dirty && hotelAccount.fax.$invalid">Invalid:
+                            <span ng-show="hotelAccount.fax.$error.required">Fax Number is required</span>
+                        <span ng-show="hotelAccount.fax.$error.minlength">Fax Number should be minimum of 6 digit</span>
+                        <span ng-show="hotelAccount.fax.$error.maxlength">Fax Number should be maximum of 15 digit</span>
+                        <span ng-show="hotelAccount.fax.$error.pattern">Fax Number should have digits only<span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Phone</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="phone" ng-model="createProfile.telephone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.phone.$dirty && hotelAccount.phone.$invalid">Invalid:
+                            <span ng-show="hotelAccount.phone.$error.required">Phone is required</span>
+                        <span ng-show="hotelAccount.phone.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                        <span ng-show="hotelAccount.phone.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                        <span ng-show="hotelAccount.phone.$error.pattern">Phone Number should have digits only<span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Email Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="email" class="form-control" name="email" ng-model="createProfile.email" required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.email.$dirty && hotelAccount.email.$invalid">Invalid:
+                            <span ng-show="hotelAccount.email.$error.required">Email Field is required</span>
+                        <span ng-show="hotelAccount.email.$error.email ">Tell us your Valid Email</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Category</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="category" ng-model="createProfile.category" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.category.$dirty && hotelAccount.category.$invalid">Invalid:
+                            <span ng-show="hotelAccount.category.$error.required">Category is required</span>
+                        <span ng-show="hotelAccount.category.$error.minlength">Category should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.category.$error.maxlength">Category should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.category.$error.pattern">Category won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="reset" class="btn btn-default">Clear Form</button>
+                <button class="btn btn-primary pull-right" ng-click="createhotelAccount(createProfile)" ng-disabled="hotelAccount.$invalid">Add</button>
+            </div>
+        </form>
+
+    </div>
+</div>

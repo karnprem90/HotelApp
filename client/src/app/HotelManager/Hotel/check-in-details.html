@@ -1,0 +1,91 @@
+
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal ng-pristine ng-valid" name="checkindetailsform" novalidate>
+
+            <div class="panel panel-default">
+                <div class="panel-heading wrapper b-b b-light">
+                    <h4 class="panel-title font-thin m-t-none m-b-none text-muted">Check in Details</h4>
+                </div>
+                <div class="panel-body">                                       
+                    <div class="row">
+                    
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label">by Id</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input type="text"  class="form-control" ng-model="checkin.customerId">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label">by Room</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input type="text"  class="form-control" ng-model="checkin.room">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="col-md-4 col-xs-12 control-label">Expected Stay EndDate</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                        <input type="text" class="form-control ng-valid ng-isolate-scope ng-valid-date ng-valid-required ng-valid-parse ng-touched ng-dirty" datepicker-popup="shortDate" ng-model="checkin.expectedStayEndDate" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" required="required" ng-click="open($event)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+
+                    </div>
+                </div>
+                <div class="panel-body form-group-separated">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Contact</th>
+                                    <th>Phone</th>
+                                    <th>Email Address</th>
+                                    <th>Room No.</th>
+                                    <th>Nationality</th>
+                                    <th>Check in Date</th>
+                                    <th>Checkout Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                    <td>{{checkindetails._id}}</td>
+                                    <td>{{checkindetails.firstname}}</td>
+                                    <td>{{checkindetails.lastname}}</td>
+                                    <td>{{checkindetails.phone}}</td>
+                                    <td>{{checkindetails.email}}</td>
+                                    <td>{{checkindetails.currentStay.room}}</td>
+                                    <td>{{checkindetails.nationality}}</td>
+                                    <td>{{checkindetails.currentStay.stayStartDate}}</td>
+                                    <td>{{checkindetails.currentStay.expectedStayEndDate}}4</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary " ng-click="checkindetails(checkin)">Search</button>
+                </div>
+            </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,397 @@
+<!-- <div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+          <h4 class="font-thin m-t-none m-b-none text-muted">Service Manager Setting</h4>
+        </div>
+            <form class="form-horizontal" name="suppAccount">
+                <fieldset ng-disabled="!isSaving">
+                            <div class="panel-body">
+                                                                                      
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Corporate Name</label>
+                                            <div class="col-md-9">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-building"></span></span>
+                                                    <input class="form-control" name="corporateName" ng-model="acct_list.supplier.corporateName" placeholder="Corporate Name" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" ng-readonly="true">
+                                                    <span ng-show="supAccount.corporateName.$error.required">Tell us your Corporate Name</span>
+                                                    <span ng-show="supAccount.corporateName.$error.minlength">Corporate name should be minimum of 3 characters</span>
+                                                    <span ng-show="supAccount.corporateName.$error.maxlength">Corporate name should be maximum of 25 characters</span>
+                                                    <span ng-show="supAccount.corporateName.$error.pattern">Corporate name won't allow numbers and special characters</span>
+                                                </div>
+                                            </div>
+                                                
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Phone</label>
+                                            <div class="col-md-9">    
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                                                    <input type="text" class="form-control" placeholder="phone number" name="phone" ng-model="acct_list.supplier.phone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " ng-readonly="true" required>
+                                                    <span ng-show="supAccount.phone.$error.required">Phone is required</span>
+                                                    <span ng-show="supAccount.phone.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                                                    <span ng-show="supAccount.phone.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                                                    <span ng-show="supAccount.phone.$error.pattern">Phone Number should have digits only<span>
+                                                </div>                                        
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Email</label>
+                                            <div class="col-md-9">                                            
+                                                <div class="input-group">
+                                                        <span class="input-group-addon"><span><b> @ </b></span></span>
+                                                        <input type="email" class="form-control" name="email" ng-model="acct_list.email"
+                                                        ng-readonly="true" required> 
+                                                </div>
+                                                <span ng-show="supAccount.email.$error.required">Email Field is required</span>
+                                                <span ng-show="supAccount.email.$error.email">Tell us your Valid Email</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Siret</label>
+                                            <div class="col-md-9">                         
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span><b> @ </b></span></span>
+                                                    <input type="text" class="form-control" placeholder="Address Code" name="addrCode" ng-model="acct_list.supplier.siret" ng-minlength="6" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" required ng-readonly="true">
+                                                     <span ng-show="supAccount.addrCode.$error.required">Siret is required</span>
+                                                    <span ng-show="supAccount.addrCode.$error.minlength">Siret should be minimum of 6 character</span>
+                                                    <span ng-show="supAccount.addrCode.$error.maxlength">Siret Code should be maximum of 25 character</span>
+                                                    <span ng-show="supAccount.addrCode.$error.pattern">Siret Code should have character only</span>
+                                                </div>
+                                                   
+                                            </div>
+                                        </div> 
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">City</label>
+                                            <div class="col-md-9">                         
+                                               <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                                                    <input type="text" class="form-control" name="city" ng-model="acct_list.supplier.address.city" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" ng-readonly="true">
+                                                     <span ng-show="supAccount.city.$error.required">City name is required</span>
+                                                    <span ng-show="supAccount.city.$error.minlength">City name should be minimum of 3 characters</span>
+                                                    <span ng-show="supAccount.city.$error.maxlength">City name should be maximum of 25 characters</span>
+                                                    <span ng-show="supAccount.city.$error.pattern">City name won't allow numbers and special characters</span>
+                                                </div>
+                           
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Street</label>
+                                            <div class="col-md-9">           
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                                                    <input type="text" class="form-control" name="street" ng-model="acct_list.supplier.address.street" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" ng-readonly="true">
+                                                    <span ng-show="supAccount.street.$error.required">Street  is required</span>
+                                                    <span ng-show="supAccount.street.$error.minlength">Street should be minimum of 3 characters</span>
+                                                    <span ng-show="supAccount.street.$error.maxlength">Street name should be maximum of 25 characters</span>
+                                                    <span ng-show="supAccount.street.$error.pattern">Street name won't allow numbers and special characters</span>
+                                                </div>                             
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Region</label>
+                                            <div class="col-md-9">                                            
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                                                    <input type="text" class="form-control" name="region" ng-model="acct_list.supplier.address.region" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" ng-readonly="true">
+                                                    <span ng-show="supAccount.region.$error.required">Tell us your Region</span>
+                                                    <span ng-show="supAccount.region.$error.minlength">Region should be minimum of 3 characters</span>
+                                                    <span ng-show="supAccount.region.$error.maxlength">Region should be maximum of 25 characters</span>
+                                                    <span ng-show="supAccount.region.$error.pattern">Region won't allow numbers and special characters</span>
+                                                </div>                       
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">TVA Code</label>
+                                            <div class="col-md-9">                              
+                                               <div class="input-group">
+                                                    <span class="input-group-addon"><span><b> @ </b></span></span>
+                                                    <input type="text" class="form-control" placeholder="tvacode number" name="tvacode" ng-model="acct_list.supplier.nDegreeTVAcode" ng-minlength="6" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" required ng-readonly="true">
+                                                    <span ng-show="supAccount.tvacode.$error.required">TVA is required</span>
+                                                    <span ng-show="supAccount.tvacode.$error.minlength">TVA Code should be minimum of 6 digit</span>
+                                                    <span ng-show="supAccount.tvacode.$error.maxlength">TVA Code should be maximum of 25 digit</span>
+                                                    <span ng-show="supAccount.tvacode.$error.pattern">TVA Code should have digits only<span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+                            <div class="panel-body">                                                                        
+                                            
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Manager Name</label>
+                                            <div class="col-md-9">                          
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-building"></span></span>
+                                                    <input class="form-control" name="managername" ng-model="acct_list.firstname"  ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" >
+                                                    <span ng-show="supAccount.managername.$error.required">Tell us your Corporate Name</span>
+                                                    <span ng-show="supAccount.managername.$error.minlength">Corporate name should be minimum of 3 characters</span>
+                                                    <span ng-show="supAccount.managername.$error.maxlength">Corporate name should be maximum of 25 characters</span>
+                                                    <span ng-show="supAccount.managername.$error.pattern">Corporate name won't allow numbers and special characters</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Manager Phone</label>
+                                            <div class="col-md-9">                           
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                                                    <input type="text" class="form-control" placeholder="phone number" name="mphone" ng-model="acct_list.phone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required >
+                                                    <span ng-show="supAccount.mphone.$error.required">Phone is required</span>
+                                                    <span ng-show="supAccount.mphone.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                                                    <span ng-show="supAccount.mphone.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                                                    <span ng-show="supAccount.mphone.$error.pattern">Phone Number should have digits only<span>
+                                                </div> 
+                                            </div>
+                                        </div>
+
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Manager Email</label>
+                                            <div class="col-md-9">                          
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span><b> @ </b></span></span>
+                                                    <input type="email" class="form-control" name="email" ng-model="acct_list.email" required ng-readonly="true">
+                                                </div>
+                                                <span ng-show="supAccount.email.$error.required">Email Field is required</span>
+                                                <span ng-show="supAccount.email.$error.email">Tell us your Valid Email</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                           <div class="panel-body">                                                                        
+                    
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Contact Name</label>
+                                            <div class="col-md-9">                                            
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                    <input type="text" class="form-control" ng-readonly="true"/>
+                                                </div>                                            
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Opening Time</label>
+                                            <div class="col-md-9">                                            
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                    <input type="text" class="form-control" ng-readonly="true"/>
+                                                </div>                                            
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">                                        
+                                            <label class="col-md-3 control-label">Day off</label>
+                                            <div class="col-md-9">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                    <input type="text" class="form-control" value="2014-11-01" ng-readonly="true">                                            
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Closing Time</label>
+                                            <div class="col-md-9">                                            
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                    <input type="text" class="form-control" ng-readonly="true"/>
+                                                </div>                                            
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+
+                           </div>
+                </fieldset>
+                    <div class="panel-footer">
+                        <button class="btn btn-info pull-right" ng-click="updateAccount()" ng-hide="editButton">Edit</button>
+                        <button class="btn btn-primary pull-right" ng-click="saveAccount(acct_list)" ng-show="saveButton">Save</button>
+                    </div>           
+            </form>                        
+    </div>
+</div> -->
+
+<div class="wrapper-md col-lg-3 col-md-3 col-sm-4 col-xs-6">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+          <h4 class="font-thin m-t-none m-b-none text-muted">Supplier Details</h4>
+        </div>
+        <div class="panel-body">
+            <div >
+                <h4>{{acct_list.supplier.corporateName}}</h4>
+            </div>
+            <div>
+                <p>{{acct_list.supplier.address.street}}, <br>
+                {{acct_list.supplier.address.city}}, <br>
+                {{acct_list.supplier.address.region}}, <br>
+                {{acct_list.supplier.address.country}}</p>
+            </div>
+
+            <div>
+                <p><b>SIRET :</b> {{acct_list.supplier.siret}}</p>
+                <p><b>N° TVA code :</b> {{acct_list.supplier.nDegreeTVAcode}}</p>
+            </div>
+
+            <div class="col-md-5 col-md-offset-1">
+                <img src="assets/img/no_image.jpg" alt="no image" align="middle" height="100" width="100">
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="wrapper-md col-lg-6 col-md-6 col-sm-4 col-xs-6">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+          <h4 class="font-thin m-t-none m-b-none text-muted">Contact Details</h4>
+        </div>
+        <form class="form-horizontal" name="suppAccount">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">First Name</label>
+                    <div class="col-md-6">                          
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input class="form-control" name="managername" ng-model="acct_list.firstname" ng-readonly="!editButton" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" >
+                            <span ng-show="supAccount.managername.$error.required">Tell us your first name</span>
+                            <span ng-show="supAccount.managername.$error.minlength">First name should be minimum of 3 characters</span>
+                            <span ng-show="supAccount.managername.$error.maxlength">First name should be maximum of 25 characters</span>
+                            <span ng-show="supAccount.managername.$error.pattern">First name won't allow numbers and special characters</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Last Name</label>
+                    <div class="col-md-6">                          
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input class="form-control" name="managername" ng-model="acct_list.lastname" ng-readonly="!editButton"  ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" >
+                            <span ng-show="supAccount.managername.$error.required">Tell us your last name</span>
+                            <span ng-show="supAccount.managername.$error.minlength">Last name should be minimum of 3 characters</span>
+                            <span ng-show="supAccount.managername.$error.maxlength">Last name should be maximum of 25 characters</span>
+                            <span ng-show="supAccount.managername.$error.pattern">Last name won't allow numbers and special characters</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Mobile Phone</label>
+                    <div class="col-md-6">                           
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input type="text" class="form-control" placeholder="phone number" name="mphone" ng-model="acct_list.phone" ng-readonly="!editButton" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required >
+                            <span ng-show="supAccount.mphone.$error.required">Phone is required</span>
+                            <span ng-show="supAccount.mphone.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                            <span ng-show="supAccount.mphone.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                            <span ng-show="supAccount.mphone.$error.pattern">Phone Number should have digits only</span>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Email</label>
+                    <div class="col-md-6">                          
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="email" class="form-control" name="email" ng-model="acct_list.email" required ng-readonly="true">
+                        </div>
+                        <span ng-show="supAccount.email.$error.required">Email Field is required</span>
+                        <span ng-show="supAccount.email.$error.email">Tell us your Valid Email</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Prefered Language</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-bullhorn"></span></span>
+                            <select class="form-control" name="language" ng-model="acct_list.preferedLanguage" ng-options="language.code as language.language for language in languagesList" ng-readonly="!editButton" required>
+                                <option value="">Select Language</option>
+                            </select>
+                        </div>
+                        <span class="error" ng-show="userAccount.language.$error.required && submit">Select Language</span>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-info pull-right" ng-click="updateAccount()" ng-hide="editButton">Edit</button>
+                    <button class="btn btn-primary pull-right" ng-click="saveAccount(acct_list)" ng-show="saveButton">Save</button>
+                </div>           
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="wrapper-md col-lg-3 col-md-3 col-sm-4 col-xs-6">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+          <h4 class="font-thin m-t-none m-b-none text-muted">Operating hours</h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <p>Mon. closed <br>
+                Tue. 10:00-12:30 13:30-19:00 <br>
+                Wed. 10:00-12:30 13:30-19:00 <br>
+                Thu. 10:00-12:30 13:30-19:00 <br>
+                Fri. 10:00-12:30 13:30-19:00 <br>
+                Sat. 10:00-12:30 13:30-19:00 <br>
+                Sun. 10:00-12:30 13:30-19:00 <br>
+                </p> 
+            </div>
+            <!-- <div class="row">
+                <div class="col-md-4">Days off</div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="input-group w-md">
+                                <div>
+                                    <multiple-date-picker ng-model="hello">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" ng-click="addOpening()">Add Exceptional Opening </button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

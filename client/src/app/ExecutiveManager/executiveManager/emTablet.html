@@ -1,0 +1,55 @@
+<div class="wrapper-md" ng-init="getTabletlist()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading wrapper b-b b-light">
+                    <h4 class="panel-title font-thin m-t-none m-b-none text-muted">Tablet List </h3>  
+                </div>
+                <div class="panel-body form-group-separated">
+                    <div class="table-responsive" >
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>macAddress</th>
+                                    <th>fabricant</th>
+                                    <th>model</th>
+                                    <th>serialNumber</th>
+                                    <th>partNumber</th>        
+                                    <th>osVersion</th>
+                                    <th>softwareVersion</th>
+                                    <th>batchProd</th>
+                                    <th>warrantyBeginning</th>
+                                    <th>warrantyDuration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  ng-repeat="tabletDetails in tabletList" ng-click='selectTablet($index)' ng-class='{selected: $index==selectedRow}'>   
+                                    <td>{{tabletDetails.macAddress}}</td>
+                                    <td>{{tabletDetails.fabricant}}</td>
+                                    <td>{{tabletDetails.model}}</td>
+                                    <td>{{tabletDetails.serialNumber}}</td>
+                                    <td>{{tabletDetails.partNumber}}</td>
+                                    <td>{{tabletDetails.osVersion}}</td>
+                                    <td>{{tabletDetails.softwareVersion}}</td>
+                                    <td>{{tabletDetails.batchProd}}</td>
+                                    <td>{{tabletDetails.warrantyBeginning}}</td>
+                                    <td>{{tabletDetails.warrantyDuration}}</td>
+                                </tr>
+                              </tbody>
+                        </table> 
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-md-3 col-xs-12 control-label">Zone</label>
+                        <div class="col-md-6 col-xs-12">
+                            <select class="form-control" ng-model="createProfile.zone" name="zone" ng-options="c._id as c.zoneName for c in zones" class="col-sm-11" required></select>
+                        </div>
+                        <span class="error" ng-show="account.zone.$error.required && submitted">Zone Field is required</span>
+                        <div class="col-md-3 col-xs-12">
+                            <button class="btn btn-primary m-r-sm">Transfer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

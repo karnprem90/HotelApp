@@ -1,0 +1,278 @@
+<div class="wrapper-md">
+
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Customer Account</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal ng-pristine ng-valid" name="cusAccount" novalidate>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Title</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-user"></span></span>
+                            <select class="form-control select" name="prefix" ng-model="createProfile.prefix" required>
+                                <option value="">Select Tilte</option>
+                                <option value="Mr">Mr.</option>
+                                <option value="Ms">Ms.</option>
+                            </select>
+                        </div>
+                        <span class="error" ng-show="cusAccount.prefix.$dirty && cusAccount.prefix.$invalid">Invalid:
+                            <span ng-show="cusAccount.prefix.$error.required">Select Title</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">First Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="firstName" ng-model="createProfile.firstname" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <div class="error" ng-show="cusAccount.firstName.$dirty && cusAccount.firstName.$invalid">Invalid:
+                            <span ng-show="cusAccount.firstName.$error.required">Tell us your First Name</span>
+                            <span ng-show="cusAccount.firstName.$error.minlength">First name should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.firstName.$error.maxlength">First name should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.firstName.$error.pattern">First name won't allow numbers and special characters</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Last Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="lastName" ng-model="createProfile.lastname" required ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <div class="error" ng-show="cusAccount.lastName.$dirty && cusAccount.lastName.$invalid">Invalid:
+                            <span ng-show="cusAccount.lastName.$error.required">Tell us your Last Name</span>
+                            <span ng-show="cusAccount.lastName.$error.minlength">Last name should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.lastName.$error.maxlength">Last name should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.lastName.$error.pattern">Last name won't allow numbers and special characters</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Gender</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="radio">
+                            <label class="i-checks">
+                                <input type="radio" name="a" value="Male" ng-model="createProfile.gender">
+                                <i></i> Male
+                            </label>
+                            <label class="i-checks">
+                                <input type="radio" name="a" value="Female" ng-model="createProfile.gender">
+                                <i></i> Female
+                            </label>
+                            <label class="i-checks">
+                                <input type="radio" name="a" value="Others" ng-model="createProfile.gender">
+                                <i></i> Others
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Prefered Language</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="text" class="form-control" name="userName" ng-model="createProfile.preferedLanguage" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z0-9& ]*$/" required>
+                        </div>
+                        <div class="error" ng-show="cusAccount.userName.$dirty && cusAccount.userName.$invalid">Invalid:
+                            <span ng-show="cusAccount.userName.$error.required">Tell us your User Name</span>
+                            <span ng-show="cusAccount.userName.$error.minlength">User name should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.userName.$error.maxlength">User name should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.userName.$error.pattern">User name won't allow special characters</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Password</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
+                            <input type="password" class="form-control" name="password" ng-model="createProfile.password" ng-minlength="6" ng-maxlength="25" ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/" required>
+                        </div>
+                        <div class="error" ng-show="cusAccount.password.$dirty && cusAccount.password.$invalid">Invalid:
+                            <span ng-show="cusAccount.password.$error.required">Set your password</span>
+                            <span ng-show="cusAccount.password.$error.minlength">Password should be minimum of 6 character</span>
+                            <span ng-show="cusAccount.password.$error.maxlength">Password should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.password.$error.pattern">Password should have atleast one number, one lowercase and one uppercase letter and atleast six characters<span> 
+                        </div>
+                                            
+                    </div>
+                </div> -->
+
+                <div class="form-group">
+                     <label class="col-md-3 col-xs-12 control-label">Email Address</label>
+                    <div class="col-md-6 col-xs-12">                                            
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="email" class="form-control" name="email" ng-model="createProfile.email" required>
+                        </div>
+                        <span class="error" ng-show="cusAccount.email.$dirty && cusAccount.email.$invalid">Invalid:
+                            <span ng-show="cusAccount.email.$error.required">Email Field is required</span>
+                            <span ng-show="cusAccount.email.$error.email ">Tell us your Valid Email</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Phone</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input type="text" class="form-control" name="phone" ng-model="createProfile.phone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <div class="error" ng-show="cusAccount.phone.$dirty && cusAccount.phone.$invalid">Invalid:
+                            <span ng-show="cusAccount.phone.$error.required">Phone is required</span>
+                            <span ng-show="cusAccount.phone.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                            <span ng-show="cusAccount.phone.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                            <span ng-show="cusAccount.phone.$error.pattern">Phone Number should have digits only<span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Nationality</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="nationality" ng-model="createProfile.nationality" ng-minlength="3" ng-maxlength="12" ng-pattern="/^[a-zA-Z ]*$/" required>
+                        </div>
+                        <div class="error" ng-show="cusAccount.nationality.$dirty && cusAccount.nationality.$invalid">Invalid:
+                            <span ng-show="cusAccount.nationality.$error.required">Nationality is required</span>
+                            <span ng-show="cusAccount.nationality.$error.minlength">Nationality should be minimum of 3 character</span>
+                            <span ng-show="cusAccount.nationality.$error.maxlength">Nationality should be maximum of 12 characters</span>
+                            <span ng-show="cusAccount.nationality.$error.pattern">Nationality won't allow numbers and special characters</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Birth Date</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                            <input type="text" class="form-control ng-valid ng-isolate-scope ng-valid-date ng-valid-required ng-valid-parse ng-touched ng-dirty" datepicker-popup="shortDate" ng-model="createProfile.dob" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" required="required" ng-click="open($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Unit</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="unit" ng-model="createProfile.address.unit" ng-minlength="1" ng-maxlength="10" ng-pattern=" /^[0-9]+$/ ">
+                        </div>
+                        <span class="error" ng-show="cusAccount.unit.$dirty && cusAccount.unit.$invalid">Invalid:
+                            <span ng-show="cusAccount.unit.$error.required"> Unit field is required</span>
+                            <span ng-show="cusAccount.unit.$error.minlength">Unit field should be minimum of 1 digit</span>
+                            <span ng-show="cusAccount.unit.$error.maxlength">Unit field should be maximum of 10 digit</span>
+                            <span ng-show="cusAccount.unit.$error.pattern">Unit field should have digits only</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Building</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-building"></span></span>
+                            <input type="text" class="form-control" name="building" ng-model="createProfile.address.building" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="cusAccount.building.$dirty && cusAccount.building.$invalid">Invalid:
+                            <span ng-show="cusAccount.building.$error.required">Tell us your Building Name</span>
+                            <span ng-show="cusAccount.building.$error.minlength">Building Name should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.building.$error.maxlength">Building name should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.building.$error.pattern">Building name won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Street</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="street" ng-model="createProfile.address.street" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="cusAccount.street.$dirty && cusAccount.street.$invalid">Invalid:
+                            <span ng-show="cusAccount.street.$error.required">Street  is required</span>
+                            <span ng-show="cusAccount.street.$error.minlength">Street should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.street.$error.maxlength">Street name should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.street.$error.pattern">Street name won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">City</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="city" ng-model="createProfile.address.city" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="cusAccount.city.$dirty && cusAccount.city.$invalid">Invalid:
+                            <span ng-show="cusAccount.city.$error.required">City name is required</span>
+                            <span ng-show="cusAccount.city.$error.minlength">City name should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.city.$error.maxlength">City name should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.city.$error.pattern">City name won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Region</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="region" ng-model="createProfile.address.region" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="cusAccount.region.$dirty && cusAccount.region.$invalid">Invalid:
+                            <span ng-show="cusAccount.region.$error.required">Tell us your Region</span>
+                            <span ng-show="cusAccount.region.$error.minlength">Region should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.region.$error.maxlength">Region should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.region.$error.pattern">Region won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Country</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
+                            <input type="text" class="form-control" name="country" ng-model="createProfile.address.country" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="cusAccount.country.$dirty && cusAccount.country.$invalid">Invalid:
+                            <span ng-show="cusAccount.country.$error.required">Tell us your Country Name</span>
+                            <span ng-show="cusAccount.country.$error.minlength">Country Name should be minimum of 3 characters</span>
+                            <span ng-show="cusAccount.country.$error.maxlength">Country Name should be maximum of 25 characters</span>
+                            <span ng-show="cusAccount.country.$error.pattern">Country won't allow numbers and special characters</span>
+                        </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">ZipCode</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-link"></span></span>
+                            <input type="text" class="form-control" name="zipcode" ng-model="createProfile.address.addressCode" ng-minlength="6" ng-maxlength="15" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="cusAccount.zipcode.$dirty && cusAccount.zipcode.$invalid">Invalid:
+                            <span ng-show="cusAccount.zipcode.$error.required">Zip is required</span>
+                        <span ng-show="cusAccount.zipcode.$error.minlength">Zip Number should be minimum of 6 digit</span>
+                        <span ng-show="cusAccount.zipcode.$error.maxlength">Zip Number should be maximum of 15 digit</span>
+                        <span ng-show="cusAccount.zipcode.$error.pattern">Zip Number should have digits only<span>
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="reset" class="btn btn-default">Clear Form</button>
+                    <button class="btn btn-primary pull-right" ng-click="createCustomerAccount(createProfile)" ng-disabled="cusAccount.$invalid">Add</button>
+                </div>
+            </form>
+
+        </div>
+    </div>

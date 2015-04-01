@@ -1,0 +1,107 @@
+<div class="wrapper-md" ng-init="getLogZoneAcclist()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading wrapper b-b b-light">
+                    <ul class="nav nav-pills pull-right">
+                        <li>
+                          <span class="ng-scope"> 
+                            <script type="text/ng-template" id="zonemodal.html">
+                              <div ng-include="'app/ExecutiveManager/executiveManager/zone_name.html'"></div>
+                            </script>
+                            <button class="btn btn-primary pull-right m-r-sm" ng-click="zoneName('md')">New Zone</button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="ng-scope"> 
+                            <script type="text/ng-template" id="newAccountmodal.html">
+                              <div ng-include="'app/ExecutiveManager/executiveManager/modal.new-acc.html'"></div>
+                            </script>
+                            <button class="btn btn-primary pull-right m-r-sm" ng-click="newAccount('md', 'new')">New Account</button>
+                          </span>
+                        </li>
+                    </ul>
+                    <h4 class="panel-title font-thin m-t-none m-b-none text-muted">Account List </h3>  
+                </div>
+
+                <div class="panel-body">
+                    
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <div class="form-group">
+                                <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">by Name</label>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <input type="text"  class="form-control" ng-model="searchText.data.firstname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <div class="form-group">
+                                <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">by Zone</label>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <input type="text" value="" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <div class="form-group">
+                                <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">by Title</label>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <select class="form-control" name="title" ng-model="searchText.title">
+                                        <option value="">All</option>
+                                        <option value="Zone Manager">Zone Manager</option>
+                                        <option value="Logistic agent">Logistic agent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <div class="form-group">
+                                <label class="col-lg-7 col-md-7 col-sm-7 col-xs-7 control-label">by Business Value</label>
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    <input type="text" value="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body form-group-separated">
+                    <div class="table-responsive" >
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Title</th>
+                                    <th>Telephone</th>        
+                                    <th>Email Address</th>
+                                    <th></th>
+                                    <!-- <th>Business Value</th>
+                                    <th>Rating</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  ng-repeat="accDetails in acct_list  | filter:searchText">
+                                    <td>
+                                      <img ng-src="{{accDetails.Imageurl}}" alt="User pic" height="30" width="30">
+                                    </td>
+                                    
+                                    <td>{{accDetails.firstname}}</td>
+                                    <td>{{accDetails.lastname}}</td>
+                                    <td>{{accDetails.title}}</td>
+                                   <!--  <td ><select class="form-control" ng-model="zones" ng-options=" c as c for c in accDetails.zones" ></select></td> -->
+                                    <td>{{accDetails.phone}}</td>
+                                    <td>{{accDetails.email}}</td>
+                                    <td><button class="btn btn-info btn-xs" ng-click="getAccountInfo(accDetails)">Edit</button></td>
+                                 <!--  <td>{{accDetails.businessvalue}}</td>
+                                  <td>{{accDetails.rating}}</td> -->
+                                </tr>
+                              </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

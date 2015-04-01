@@ -1,0 +1,146 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <ul class="nav nav-pills pull-right">
+                <li>
+                    <div class="btn-group dropdown ">
+                      <button class="btn btn-primary  dropdown-toggle" data-toggle="dropdown" >Change Password</button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <form action="" id="form_login" style="margin: 0; padding: 3px 15px">
+                          <li>
+                            <div class="form-group" >
+                              <input type="password" class="form-control" id="exampleInputEmail1" drop-down placeholder="Old Password" ng-model="changepass.oldpassword">
+                            </div>
+                          </li>
+                          <li>
+                            <div class="form-group">
+                              <input type="password" class="form-control" id="exampleInputPassword1"  drop-down placeholder="New Password" ng-model="changepass.newpassword">
+                            </div>
+                          </li>
+                          
+                          <li class="divider"></li>
+                          <li><button type="submit" class="btn btn-primary btn-block" ng-click="changePwd(changepass)">Change</button></li>
+                        </form>
+                      </ul>
+                    </div>
+                </li>
+            </ul>
+            <h4 class="font-thin m-t-none m-b-none text-muted">Hotel Account Creation</h4>
+        </div>
+        <form class="form-horizontal ng-pristine ng-valid" name="hotelAccount" novalidate>
+            <div class="panel-body">
+
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Title</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="text" class="form-control" name="title" ng-model="settings.title" ng-minlength="2"  required />
+                        </div>
+                        <span class="error" ng-show="hotelAccount.title.$dirty && hotelAccount.title.$invalid">Invalid:
+                            <span ng-show="hotelAccount.title.$error.required">Tell us Id</span>
+                        <span ng-show="hotelAccount.title.$error.minlength">Id should have atleast 2 character</span>
+                        <span ng-show="hotelAccount.title.$error.pattern">Id won't allow special characters</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Fixed TelePhone</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="phone" ng-model="settings.telephone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.phone.$dirty && hotelAccount.phone.$invalid">Invalid:
+                            <span ng-show="hotelAccount.phone.$error.required">Phone is required</span>
+                        <span ng-show="hotelAccount.phone.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                        <span ng-show="hotelAccount.phone.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                        <span ng-show="hotelAccount.phone.$error.pattern">Phone Number should have digits only<span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Mobile No.</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-mobile"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="mobile" ng-model="settings.telephone" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.mobile.$dirty && hotelAccount.mobile.$invalid">Invalid:
+                            <span ng-show="hotelAccount.mobile.$error.required">Phone is required</span>
+                        <span ng-show="hotelAccount.mobile.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                        <span ng-show="hotelAccount.mobile.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                        <span ng-show="hotelAccount.mobile.$error.pattern">Phone Number should have digits only<span>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Email Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="email" class="form-control" name="email" ng-model="settings.email" required>
+                        </div>
+                        <span class="error" ng-show="hotelAccount.email.$dirty && hotelAccount.email.$invalid">Invalid:
+                            <span ng-show="hotelAccount.email.$error.required">Email Field is required</span>
+                        <span ng-show="hotelAccount.email.$error.email ">Tell us your Valid Email</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Preferred Language</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="language" ng-model="settings.language" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                        </div>
+                        <span class="error" ng-show="hotelAccount.language.$dirty && hotelAccount.language.$invalid">Invalid:
+                            <span ng-show="hotelAccount.language.$error.required">Category is required</span>
+                        <span ng-show="hotelAccount.language.$error.minlength">Category should be minimum of 3 characters</span>
+                        <span ng-show="hotelAccount.language.$error.maxlength">Category should be maximum of 25 characters</span>
+                        <span ng-show="hotelAccount.language.$error.pattern">Category won't allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Home Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <textarea type="text" class="form-control" name="homeAddr" ng-model="settings.homeAddr"  ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/"></textarea>
+                        
+                        <span class="error" ng-show="hotelAccount.homeAddr.$dirty && hotelAccount.homeAddr.$invalid">Invalid:
+                            <span ng-show="hotelAccount.homeAddr.$error.required">Category is required</span>
+                        <span ng-show="hotelAccount.homeAddr.$error.minlength">Category should be minimum of 3 characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Office Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <textarea type="text" class="form-control" name="officeAddr" ng-model="settings.officeAddr"  ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/"></textarea>
+                        
+                        <span class="error" ng-show="hotelAccount.officeAddr.$dirty && hotelAccount.officeAddr.$invalid">Invalid:
+                            <span ng-show="hotelAccount.officeAddr.$error.required">Category is required</span>
+                        <span ng-show="hotelAccount.officeAddr.$error.minlength">Category should be minimum of 3 characters</span>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="panel-footer">
+                <button type="reset" class="btn btn-default">Clear Form</button>
+                <button class="btn btn-primary pull-right" ng-click="changeSettings(settings)" ng-disabled="hotelAccount.$invalid">Add</button>
+            </div>
+        </form>
+
+    </div>
+</div>

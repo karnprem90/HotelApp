@@ -1,0 +1,182 @@
+<div ng-controller="roleCtrl">   
+   <!-- navbar header -->
+
+      <div class="navbar-header {{app.settings.navbarHeaderColor}}">
+        <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+          <i class="glyphicon glyphicon-cog"></i>
+        </button>
+        <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll="app">
+          <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+        <!-- brand -->
+        <a href="#/" class="navbar-brand text-lt">
+          <i class="fa fa-btc"></i>
+          <img src="assets/img/logo.png" alt="." class="hide">
+          <span class="hidden-folded m-l-xs">{{app.name}}</span>
+        </a>
+        <!-- / brand -->
+      </div>
+      <!-- / navbar header -->
+
+      <!-- navbar collapse -->
+      <div class="collapse navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+        <!-- buttons -->
+        <div class="nav navbar-nav m-l-sm hidden-xs">
+          <a href class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
+            <i class="icon-user fa-fw"></i>
+          </a>
+          <a>
+          <i class="glyphicon glyphicon-time" style="margin-left:18px"></i>
+            <span id="time" style="margin-left: 10px;"></span>
+          </a>
+
+        </div>
+        <!-- / buttons -->
+
+        <!-- link and dropdown -->
+    <!-- link and dropdown -->
+        <ul class="nav navbar-nav hidden-sm">
+          <!-- <li class="active">
+            <a href><i class="fa fa-cloud-upload fa-fw"></i> <span>Upload</span></a>
+          </li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+              <span></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" translate="header.navbar.new.PROJECT">Projects</a></li>
+              <li>
+                <a href="#">
+                  <span class="badge bg-info pull-right">5</span>
+                  <span>Task</span>
+                </a>
+              </li>
+              <li><a href="#" translate="header.navbar.new.USER">User</a></li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <span class="badge bg-danger pull-right">4</span>
+                  <span>Email</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- / link and dropdown -->
+        <!-- / link and dropdown -->
+
+        
+
+        <!-- nabar right -->
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li class="hidden-xs">
+           <a ui-fullscreen="" class=""><i class="fa fa-expand fa-fw text"></i><i class="fa fa-compress fa-fw text-active"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href class="dropdown-toggle">
+              <i class="fa fa-language"></i>
+              <span class="visible-xs-inline">Flags</span>
+            </a>
+            <!-- dropdown -->
+            <div class="dropdown-menu animated fadeInUp">
+               <div class="panel-heading b-light bg-light">
+                  <strong>ENGLISH</strong>
+                </div>
+                 <div class="panel-heading b-light bg-light">
+                  <strong>DEUTCH</strong>
+                </div> 
+                 <div class="panel-heading b-light bg-light">
+                  <strong>FRENCH</strong>
+                </div>
+            </div>
+            <!-- / dropdown -->
+          </li>
+          <li class="dropdown">
+            <a href class="dropdown-toggle clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img ng-src=" {{user.url || 'http://www.gravatar.com/avatar/default?d=identicon' }} " alt="...">
+                <i class="on md b-white bottom"></i>
+              </span>
+              <span class="hidden-sm hidden-md">{{user.scope}}</span> <b class="caret"></b>
+            </a>
+            <!-- dropdown -->
+            <ul class="dropdown-menu animated fadeInRight w">
+              <li class="wrapper b-b m-b-sm bg-light m-t-n-xs">
+                <div>
+                  <p>300mb of 500mb used</p>
+                </div>
+                <progressbar value="60" class="progress-xs m-b-none bg-white"></progressbar>
+              </li>
+              <!-- <li>
+                <a href>
+                  <span class="badge bg-danger pull-right">30%</span>
+                  <span>Settings</span>
+                </a>
+              </li> -->
+              <!-- <li ng-show="user.scope == 'Admin'">
+                <a ui-sref="app.AVisualization">Profile</a>
+              </li> -->
+              <li ng-show="user.scope == 'ExecutiveManager'">
+                <a ui-sref="app.EMProfile">Profile</a>
+              </li>
+              <li ng-show="user.scope == 'LogisticAgent'">
+                <a ui-sref="app.LAProfile">Profile</a>
+              </li>
+              <li ng-show="user.scope == 'ZoneManager'">
+                <a ui-sref="app.ZMProfile">Profile</a>
+              </li>
+              <li ng-show="user.scope == 'SupplierManager'">
+                <a ui-sref="app.service_setting">Profile</a>
+              </li>
+              <li ng-show="user.scope == 'HotelManager'">
+                <a ui-sref="app.HMProfile">Profile</a>
+              </li>
+              <li ng-show="user.scope == 'HotelUser'">
+                <a ui-sref="app.HUProfile">Profile</a>
+              </li>
+              <li ng-show="user.scope == 'Customer'">
+                <a ui-sref="app.CProfile">Profile</a>serviceuser_setting
+              </li>
+               <li ng-show="user.scope == 'SupplierUser'">
+                <a ui-sref="app.serviceuser_setting">Profile</a>
+              </li>
+
+              <li>
+                <a ui-sref="app.docs">
+                  <span class="label bg-info pull-right">new</span>
+                  Help
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a ng-click="logOut()">Logout</a>
+              </li>
+            </ul>
+            <!-- / dropdown -->
+          </li>
+        </ul>
+        <!-- / navbar right -->
+
+      </div>
+      <!-- / navbar collapse -->
+  </div>
+
+      <script type="text/javascript">
+
+        function updateClock() {
+                   var now = new Date(), // current date
+                  months = ['January', 'February', 'March','April','May','June','July','August','September','October','November','December']; 
+                    time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds(),
+                    date = [now.getDate(), 
+                    months[now.getMonth()],
+                    now.getFullYear()].join(' ');
+
+    document.getElementById('time').innerHTML = [date, time].join('  ');
+
+    setTimeout(updateClock, 1000);
+}
+updateClock(); // initial call
+
+      </script>

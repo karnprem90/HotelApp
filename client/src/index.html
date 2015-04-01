@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+  <meta charset="utf-8" />
+  <title>THV</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <link rel="stylesheet" href="assets/css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/font.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/xeditable.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/growl.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/multiple-date-picker.css" type="text/css" />
+
+</head>
+<body ng-controller="AppCtrl">
+  <div growl></div>
+  <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded}" ui-view></div>
+  <!-- jQuery -->
+  <script src="assets/js/jquery/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+
+  <!-- Angular -->
+  <script src="assets/js/angular/angular.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="assets/js/angular/angular-cookies.min.js"></script>
+  <script src="assets/js/angular/angular-animate.min.js"></script>
+  <script src="assets/js/xeditable/xeditable.min.js"></script>
+  <script src="assets/js/angular/angular-ui-router.min.js"></script>
+  <script src="assets/js/angular/angular-translate.js"></script>
+  <script src="assets/js/angular/ngStorage.min.js"></script>
+  <script src="assets/js/angular/ui-load.js"></script>
+  <script src="assets/js/angular/ui-jq.js"></script>
+  <script src="assets/js/angular/ui-validate.js"></script>
+  <script src="assets/js/angular/multipleDatePicker.min.js"></script>
+  <script src="assets/js/angular/growl.js"></script>
+  <script src="assets/js/libs/screenfull.min.js"></script>
+  <script src="assets/js/angular/imageupload.js"></script>
+  <script src="assets/js/angular/angular-file-upload-all.min.js"></script>
+  <script src="assets/js/angular/angular-file-upload-shim.min.js"></script>
+  <script src="assets/js/angular/angular-file-upload.min.js"></script>
+  <script src="assets/js/angular/angular-base64.min.js"></script>
+  <script src="assets/js/angular/ui-bootstrap-tpls.min.js"></script>
+<!--   // <script src="assets/js/angular/gm.datepickerMultiSelect.js"></script> -->
+  <script src="assets/js/angular/ng-lodash.min.js"></script>
+  <script src="assets/js/angular/moment.min.js"></script>
+  <script src="assets/js/angular/multipleDatePicker.min.js"></script>
+
+  <!-- App -->
+ 
+  <script src="app/Administrator/adminEnq.js"></script>
+  <script src="app/HotelManager/hotelManager.js"></script>
+  <script src="app/LogisticAgent/logistic.js"></script>
+  <script src="app/ServiceSupplier/service.js"></script>
+  <script src="app/main/mainLogin.js"></script>
+  <script src="app/ExecutiveManager/execManager.js"></script>
+  <script src="app/ZoneManager/zoneManager.js"></script>
+  <script src="app/Customer/customer.js"></script>
+  <script src="app/error/error.js"></script>
+  <script src="app/HotelUser/hotelUserService.js"></script>
+   <script src="app/SupplierUser/supplieruser.js"></script>
+
+  
+
+  
+
+  <!-- Hotem Manager Controller -->
+    <script src="app/main/mainCtrl.js"></script>
+    <script src="app/HotelManager/Hotel/hmCtrl.js"></script>
+    <script src="app/Administrator/admin/adminAccCtrl.js"></script>
+    <script src="app/Administrator/login/loginCtrl.js"></script>
+    <script src="app/ZoneManager/login/loginCtrl.js"></script>
+    <script src="app/ZoneManager/lists/listCtrl.js"></script>
+    <script src="app/ServiceSupplier/login/loginCtrl.js"></script>
+    <script src="app/LogisticAgent/login/loginCtrl.js"></script>
+    <script src="app/HotelManager/login/loginCtrl.js"></script>
+    <script src="app/ExecutiveManager/login/loginCtrl.js"></script>
+    <script src="app/ExecutiveManager/lists/ListCtrl.js"></script>
+    <script src="app/ZoneManager/accountVisualization/zoneMgraccvisCtrl.js"></script>
+    <script src="app/ExecutiveManager/executiveManager/execMgrCtrl.js"></script>
+    <script src="app/ExecutiveManager/executiveManager/execMgrCtrl.js"></script>
+    <script src="app/LogisticAgent/Logistic/logisticAccCtrl.js"></script>
+    <script src="app/ZoneManager/AccountCreation/zoneMgrAcctCtrl.js"></script>
+    <script src="app/ZoneManager/catalog/zmCatalogCtrl.js"></script>
+    <script src="app/Customer/cutomerAccount/cstomerAccCtrl.js"></script>
+    <script src="app/ZoneManager/ZMaccount/hotelDetailCtrl.js"></script>
+    <script src="app/ServiceSupplier/Service/suppAccCtrl.js"></script>
+    <script src="app/HotelUser/Account/hotelUsrCtrl.js"></script>
+    <script src="app/ZoneManager/ZMProduct/zoneProductCtrl.js"></script>
+    <script src="app/ZoneManager/ZMSupplier/supplierCtrl.js"></script>
+    <script src="app/SupplierUser/supplierUser/supplierUserCtrl.js"></script>
+
+
+
+
+
+
+   <!-- Authentication -->
+  <script src="app/auth/Auth.js"></script>
+
+
+
+
+  <script src="app/common/services.js"></script>
+  <script src="app/common/controllers.js"></script>
+  <script src="app/common/filters.js"></script>
+  <script src="app/common/directives.js"></script>
+  <!-- Lazy loading -->
+</body>
+</html>

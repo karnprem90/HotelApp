@@ -1,0 +1,116 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Hotel Manager Settings</h4>
+        </div>
+        <form class="form-horizontal" name="HMsaveSetting" novalidate>
+
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Manager First Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" ng-disabled="true" name="mgrfirstName" ng-model="hm.mgrFirstName">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Manager Last Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="mgrlastName" ng-model="hm.mgrLastName" ng-disabled="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label"> Manager Email Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="text" class="form-control" name="mgrEmail" ng-model="hm.mgrEmail" ng-disabled="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Manager Phone No.</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input type="phone" class="form-control" name="mgrEmail" ng-model="hm.mgrEmail" ng-disabled="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Contact First Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="firstName" ng-model="hm.contactfirstname" ng-minlength="3" ng-maxlength="25">
+                        </div>
+                        <span ng-show="HMsaveSetting.firstName.$dirty && HMsaveSetting.firstName.$invalid">Invalid:
+                            <span ng-show="HMsaveSetting.firstName.$error.required">Tell us your First Name</span>
+                        <span ng-show="HMsaveSetting.firstName.$error.minlength">First name should be minimum of 3 characters</span>
+                        <span ng-show="HMsaveSetting.firstName.$error.maxlength">First name should be maximum of 25 characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Contact Last Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="lastName" ng-model="hm.contactlastname" ng-minlength="1" ng-maxlength="25">
+                        </div>
+                        <span ng-show="HMsaveSetting.lastName.$dirty && HMsaveSetting.lastName.$invalid">Invalid:
+                            <span ng-show="HMsaveSetting.lastName.$error.required">Tell us your Last Name</span>
+                        <span ng-show="HMsaveSetting.lastName.$error.maxlength">First name should be maximum of 25 characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label"> Hotel Email Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="text" class="form-control" name="email" ng-model="hm.contactemail">
+                        </div>
+                        <span ng-show="HMsaveSetting.email.$dirty && HMsaveSetting.email.$invalid">Invalid:
+                            <span ng-show="HMsaveSetting.email.$error.required">Email Field is required</span>
+                        <span ng-show="HMsaveSetting.email.$error.email ">Tell us your Valid Email</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Hotel Phone No.</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input type="phone" class="form-control" name="phone" ng-model="hm.ContactPhone" ng-minlength="10" ng-maxlength="10" required>
+                        </div>
+                        <span ng-show="HMsaveSetting.phone.$dirty && HMsaveSetting.phone.$invalid">Invalid:
+                            <span ng-show="HMsaveSetting.phone.$error.required">Phone Number Field is required</span>
+                        <span ng-show="HMsaveSetting.phone.$error.phone ">Enter valid Phone Number</span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <button class="btn btn-default">Clear Form</button>
+                <button class="btn btn-primary pull-right" ng-click="HMSaveSetting(hm);">Add</button>
+            </div>
+        </form>
+    </div>
+</div>

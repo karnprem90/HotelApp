@@ -1,0 +1,324 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="defModalHead">Create New Product</h4>
+</div>
+<div class="modal-body">
+
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-5">
+
+                <form  class="form-horizontal">
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3 class="text-center"><strong>Product ID :</strong>456852951 </h3>
+
+                            <div class="text-center" id="user_image">
+                                <img src="assets/images/users/user2.jpg" class="img-thumbnail">
+                            </div>
+                        </div>
+                        <div ng-repeat=""></div>
+
+                        <div class="form-group">
+                            <input type="file" accept="image/*" multiple file-upload 
+                                image="images"
+                                resize-max-height="50"
+                                resize-max-width="50"
+                                resize-quality="0.7" />
+                            Originals <img ng-repeat="img in convertedImage" ng-src="{{img}}" type="{{img.file.type}}" />
+                            Resize<img ng-repeat="img in convertedImage" ng-src="{{img.resized}}" />
+
+                        </div>
+
+                        <div class="panel-body form-group-separated">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>By</th>
+
+                                            <th>Modified On</th>
+
+                                            <th>Created On</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-7">
+
+                <form name="createPr" class="form-horizontal">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-body scrollable-div1">
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Categories</label>
+                                <div class="col-sm-9">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Enter product name" name="category" required ng-model="categor">
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-info" ng-click="add_category(categor)">add</button>
+                                                </td>
+                                            </tr>
+                                            <tr height="50px" ng-repeat="cat in categories track by $index">
+                                                <td>
+                                                    <input type="text" class="form-control" name="event" required ng-model="cat" ng-readonly="true">
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-danger" ng-click="remove_category($index)">remove</button>
+                                                </td>
+                                            </tr>
+                                            <!-- ngRepeat: event in event_list track by $index -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" name="product_name" placeholder="Enter product name" required ng-model="createProduct.name" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                </div>
+                                <div class="error" ng-show="createPr.product_name.$dirty && createPr.product_name.$invalid">Invalid:
+                                        <span ng-show="createPr.product_name.$error.required">Tell us your Product Name</span>
+                                        <span ng-show="createPr.product_name.$error.$error.minlength">Product Name should be minimum of 3 characters</span>
+                                        <span ng-show="createPr.product_name.$error.maxlength">Product Name should be maximum of 25 characters</span>
+                                        <span ng-show="createPr.product_name.$error.pattern">Product Name won't allow numbers and special characters</span>
+                                        </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" name="product_type" placeholder="Enter product type" required ng-model="createProduct.productType" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                </div>
+                                <div class="error" ng-show="createPr.product_type.$dirty && createPr.product_type.$invalid">Invalid:
+                                        <span ng-show="createPr.product_type.$error.required">Tell us your Product Type</span>
+                                        <span ng-show="createPr.product_type.$error.$error.minlength">Product Type should be minimum of 3 characters</span>
+                                        <span ng-show="createPr.product_type.$error.maxlength">Product Type should be maximum of 25 characters</span>
+                                        <span ng-show="createPr.product_type.$error.pattern">Product Type won't allow numbers and special characters</span>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" name="section" placeholder="Enter Section" required ng-model="createProduct.section" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                </div>
+                                <div class="error" ng-show="createPr.section.$dirty && createPr.section.$invalid">Invalid:
+                                        <span ng-show="createPr.section.$error.required">Tell us your Section</span>
+                                        <span ng-show="createPr.section.$error.$error.minlength">Section should be minimum of 3 characters</span>
+                                        <span ng-show="createPr.section.$error.maxlength">Section should be maximum of 25 characters</span>
+                                        <span ng-show="createPr.section.$error.pattern">Section won't allow numbers and special characters</span>
+                                        </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-12 col-xs-12">
+                                    <textarea type="text" class="form-control" placeholder="Enter Product Description" required ng-model="createProduct.description" name="description" ng-minlength="6" ng-maxlength="30" ng-pattern="/^[a-zA-Z ]*$/"></textarea> 
+                                </div>
+                                <div class="error" ng-show="createPr.description.$dirty && createPr.description.$invalid">Invalid:
+                                        <span ng-show="createPr.description.$error.required">Tell us your description</span>
+                                        <span ng-show="createPr.description.$error.$error.minlength">description should be minimum of 6 characters</span>
+                                        <span ng-show="createPr.description.$error.maxlength">description should be maximum of 30 characters</span>
+                                        <span ng-show="createPr.description.$error.pattern">description won't allow numbers and special characters</span>
+                                        </span>
+                                </div> 
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Enter Warranty Details if any" name="warranty" required ng-model="createProduct.warrantyCondition" ng-minlength="2" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                </div>
+                                <div class="error" ng-show="createPr.warranty.$dirty && createPr.warranty.$invalid">Invalid:
+                                    <span ng-show="createPr.warranty.$error.required"> warranty is required</span>
+                                    <span ng-show="createPr.warranty.$error.minlength"> warranty should be minimum of 2 digit</span>
+                                    <span ng-show="createPr.warranty.$error.maxlength"> warranty  should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.warranty.$error.pattern"> warranty should have digits only<span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Width" name="width" class="form-control" required ng-model="createProduct.dimension.width" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    <div class="error" ng-show="createPr.width.$dirty && createPr.width.$invalid">Invalid:
+                                    <span ng-show="createPr.width.$error.required">Width is required</span>
+                                    <span ng-show="createPr.width.$error.minlength"> Width should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.width.$error.maxlength"> Width should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.width.$error.pattern">Width should have digits only<span>
+                                </div>
+                            </div>
+
+                                <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Depth" name="depth" class="form-control" required ng-model="createProduct.dimension.depth" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    <div class="error" ng-show="createPr.depth.$dirty && createPr.depth.$invalid">Invalid:
+                                    <span ng-show="createPr.depth.$error.required"> Depth is required</span>
+                                    <span ng-show="createPr.depth.$error.minlength">Depth  should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.depth.$error.maxlength">Depth  should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.depth.$error.pattern">Depth  should have digits only<span>
+                                </div>
+                                </div>
+
+                                <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Height" name="height" class="form-control" required ng-model="createProduct.dimension.height" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    <div class="error" ng-show="createPr.height.$dirty && createPr.height.$invalid">Invalid:
+                                    <span ng-show="createPr.height.$error.required"> Height is required</span>
+                                    <span ng-show="createPr.height.$error.minlength"> Height should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.height.$error.maxlength"> Height should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.height.$error.pattern"> Height should have digits only<span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Unit" name="unit" class="form-control" required ng-model="createProduct.dimension.unit" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    <div class="error" ng-show="createPr.unit.$dirty && createPr.unit.$invalid">Invalid:
+                                    <span ng-show="createPr.unit.$error.required"> unit is required</span>
+                                    <span ng-show="createPr.unit.$error.minlength"> unit should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.unit.$error.maxlength"> unit should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.unit.$error.pattern"> unit should have digits only<span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-offset-6 col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Weight" name="weight" class="form-control" required ng-model="createProduct.weight.value" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    <div class="error" ng-show="createPr.weight.$dirty && createPr.weight.$invalid">Invalid:
+                                    <span ng-show="createPr.weight.$error.required">weight is required</span>
+                                    <span ng-show="createPr.weight.$error.minlength"> weight should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.weight.$error.maxlength"> weight should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.weight.$error.pattern"> weight should have digits only<span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-xs-7">
+                                    <select class="form-control select" name="unit" required ng-model="createProduct.weight.unit">
+                                        <option value="kg">kg</option>
+                                        <option>Kids</option>
+                                        <option>3 Star</option>
+                                        <option>4 Star</option>
+                                        <option>5 Star</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">Supplier</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <select class="form-control select" required ng-model="createProduct.supplierId" ng-options="c._id as c.corporateName for c in supplier_list">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">Cost of Goods Sold</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="text" class="form-control" name="costprice" required ng-model="createProduct.costPrice" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    </div>
+                                    <div class="error" ng-show="createPr.costprice.$dirty && createPr.costprice.$invalid">Invalid:
+                                    <span ng-show="createPr.costprice.$error.required"> Costprice is required</span>
+                                    <span ng-show="createPr.costprice.$error.minlength"> Costprice should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.costprice.$error.maxlength"> Costprice should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.costprice.$error.pattern"> Costprice should have digits only<span>
+                                   </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">Vat Percent</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="text" class="form-control" name="vat" required ng-model="createProduct.vatPercent" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    </div>
+                                    <div class="error" ng-show="createPr.vat.$dirty && createPr.vat.$invalid">Invalid:
+                                    <span ng-show="createPr.vat.$error.required"> Vat is required</span>
+                                    <span ng-show="createPr.vat.$error.minlength"> Vat should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.vat.$error.maxlength"> Vat should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.vat.$error.pattern"> Vat should have digits only<span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">Retail Price</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="text" class="form-control" name="retailprice" required ng-model="createProduct.retailPrice" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    </div>
+                                    <div class="error" ng-show="createPr.retailprice.$dirty && createPr.retailprice.$invalid">Invalid:
+                                    <span ng-show="createPr.retailprice.$error.required"> Retail Price is required</span>
+                                    <span ng-show="createPr.retailprice.$error.minlength"> Retail Price should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.retailprice.$error.maxlength"> Retail Price should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.retailprice.$error.pattern"> Retail Price should have digits only<span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">In Stock</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="text" class="form-control" name="stock" required ng-model="createProduct.stock" ng-minlength="1" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    </div>
+                                    <div class="error" ng-show="createPr.stock.$dirty && createPr.stock.$invalid">Invalid:
+                                    <span ng-show="createPr.stock.$error.required">Stock is required</span>
+                                    <span ng-show="createPr.stock.$error.minlength"> Stock should be minimum of 1 digit</span>
+                                    <span ng-show="createPr.stock.$error.maxlength"> Stock should be maximum of 12 digit</span>
+                                    <span ng-show="createPr.stock.$error.pattern"> Stock should have digits only<span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3">
+                                <p>
+                                    <label class="check">
+                                        <input type="checkbox" class="icheckbox" required ng-model=" createProduct.isActive"> Active</label>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END TABS -->
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-Primary" data-dismiss="modal" ng-click="ok(createProduct)" ng-disabled="createPr.$invalid">Save</button>
+</div>

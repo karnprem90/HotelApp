@@ -1,0 +1,52 @@
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading wrapper b-b b-light">
+                    <h4 class="panel-title font-thin m-t-none m-b-none text-muted">Zones List </h4>  
+                </div>
+
+                <div class="panel-body">  	
+                    <div class="table-responsive">
+                        <div ng-show="zones.length == 0">
+                            <h4>There are no hotel managers in this zone</h4>
+                        </div>
+                        <table class="table table-bordered" ng-show="zones.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="zone in zones">
+                                  <td>{{$index+1}}</td>
+                                  <td>
+                                    <span editable-text="zone.zoneName" e-name="zoneName" e-form="rowform" onbeforesave="checkName($data, zone.zoneName)"e-required>{{zone.zoneName}}</span>
+                                  </td>
+                                  
+                                  <td style="white-space: nowrap">
+                                    <form editable-form name="rowform" onbeforesave="updateZoneDetails(zone)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == zone">
+                                      <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-info btn-xs">
+                                        update
+                                      </button>
+                                      <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default btn-xs">
+                                        cancel
+                                      </button>
+                                    </form>
+                                    <div class="buttons" ng-show="!rowform.$visible">
+                                      <button class="btn btn-primary btn-xs" ng-click="rowform.$show()">edit</button>
+                                      <!-- <button class="btn btn-danger" ng-click="removeUser($index)">del</button> -->
+                                    </div>  
+                                  </td>
+                                </tr>
+                              </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,792 @@
+
+<div ng-controller="roleCtrl" ng-init="init()">
+<ul class="nav">
+        <ul class="nav" ng-if="user.scope == 'Admin'">
+
+            <li ui-sref-active="active">
+                <a>
+                    <span class="font-bold">Dashboard</span>
+                </a>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="app.exe_Account">
+                    <span class="font-bold">Account</span>
+                </a>
+            </li>
+
+
+            <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Account</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.AVisualization">
+                        <span class="font-bold"> Visualisation</span>
+                    </a>
+                    <a ui-sref="app.exM-account">
+                        <span class="font-bold">Executive Account Creation</span>
+                    </a>
+                </ul>
+            </li> -->
+
+
+
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>System Maintenance</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.system-maintainance">
+                        <span class="font-bold">Send Message</span>
+                    </a>
+                    <a ui-sref="app.system-maintainance">
+                        <span class="font-bold">Update tablet software</span>
+                    </a>
+                    <a ui-sref="app.admin-tablet">
+                        <span class="font-bold">Add Tablet</span>
+                    </a>
+                    <a ui-sref="app.system-maintainance">
+                        <span class="font-bold">Account Interface</span>
+                    </a>
+                    <a ui-sref="app.admin-shutdown">
+                        <span class="font-bold">Shutdown</span>
+                    </a>
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.adminsetting">
+                    <span class="font-bold">Settings</span>
+                </a>
+            </li>
+        </ul>
+    <!-- Hotel Manager Navbar -->
+        <ul class="nav" ng-if="user.scope == 'HotelManager'">
+             <li ui-sref-active="active">
+                <a ui-sref="app.hotel-manager-guest">
+                    <span class="font-bold"> Guest Account Creation</span>
+                </a>
+            </li>
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                    <span>Transaction</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.transaction-pending">
+                        <span class="font-bold"> Pending</span>
+                    </a>
+                </ul>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.transaction-done">
+                        <span class="font-bold">Done</span>
+                    </a>
+                </ul>
+            </li>
+             <li ui-sref-active="active">
+                <a ui-sref="app.HManager_status">
+                    <span class="font-bold">Tablet Status</span>
+                </a>
+            </li>
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                    <span>Messages</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.HManager_current-message">
+                        <span class="font-bold">Currently Displayed</span>
+                    </a>
+                </ul>
+            </li>
+             <!-- <li ui-sref-active="active">
+                <a ui-sref="app.HManager_setting">
+                    <span class="font-bold">Setting</span>
+                </a>
+            </li> -->
+            <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Check-in/Out Details</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.check-in">
+                        <span class="font-bold"> Check-in Details</span>
+                    </a>
+                </ul>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.check-out">
+                        <span class="font-bold"> Check-out Details</span>
+                    </a>
+                </ul>
+            </li> -->
+        </ul>
+
+
+    <!-- Logistic Navbar -->
+        <ul class="nav" ng-if="user.scope == 'LogisticAgent'">
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Deliveries</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.logtransaction-pending">
+                        <span class="font-bold"> Pending</span>
+                    </a>
+                </ul>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.logtransaction-done">
+                        <span class="font-bold">Done</span>
+                    </a>
+                </ul>
+            </li>
+            <!-- <li ui-sref-active="active">
+                <a ui-sref="app.logistic-setting">
+                    <span class="font-bold">Setting</span>
+                </a>
+            </li> -->
+        </ul>
+
+
+    <!-- ServiceSupplier Navbar -->
+        <ul class="nav" ng-if="user.scope == 'SupplierManager'">
+            <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+              <i class="fa fa-fw fa-angle-right text"></i>
+              <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+                    <span>Product</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.product-details">
+                        <span class="font-bold"> Details</span>
+                    </a>
+                </ul>
+            </li> -->
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                      <i class="fa fa-fw fa-angle-right text"></i>
+                      <i class="fa fa-fw fa-angle-down text-active"></i>
+                    </span>
+                    <span>Orders</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.service_pending">
+                        <span class="font-bold"> Pending</span>
+                    </a>
+                </ul>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.service_done">
+                        <span class="font-bold">Done</span>
+                    </a>
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.service_stock">
+                    <span class="font-bold">Stock</span>
+                </a>
+            </li>
+        </ul>
+         <ul class="nav" ng-if="user.scope == 'SupplierUser'">
+            <li ui-sref-active="active">
+                <a>
+                    <span class="font-bold">Dashboard</span>
+                </a>
+            </li>
+
+        </ul>
+
+    <!-- ZoneManager Navbar -->
+        <ul class="nav " ng-if="user.scope == 'ZoneManager'">
+            <li ui-sref-active="active">
+                <a>
+                    <span class="font-bold">Dashboard</span>
+                </a>
+            </li>
+            <!-- 
+            <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                        <span>Account</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">
+                        <a ui-sref="app.zmaccvis_list">
+                            <span class="font-bold">Visualisation</span>
+                        </a>
+                    </ul> 
+            </li> -->
+
+            <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Hotel</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.hotelacc_creation">
+                        <span class="font-bold">Account Creation</span>
+                    </a>
+                    <a ui-sref="app.zmhotelacc_list">
+                        <span class="font-bold">Hotels List</span>
+                    </a>
+                </ul>
+            </li>
+
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Hotel Manager</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.zmhmacc_creation">
+                        <span class="font-bold">Account Creation</span>
+                    </a>                
+                    <a ui-sref="app.hotelManagerList">
+                        <span class="font-bold">Hotel Managers List</span>
+                    </a>
+
+                </ul>
+            </li>
+
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Service Supplier</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.hotelservice-supp-acc">
+                        <span class="font-bold">Account Creation</span>
+                    </a>                
+                    <a ui-sref="app.supplierList">
+                        <span class="font-bold">Service Suppliers List</span>
+                    </a>
+                </ul>
+            </li>
+
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Logistic Agent</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">             
+                    <a ui-sref="app.logisticAgentList">
+                        <span class="font-bold">Logistic Agents List</span>
+                    </a>
+                </ul>
+            </li> -->
+
+
+
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Transaction</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.transaction_pending">
+                        <span class="font-bold"> Pending</span>
+                    </a>
+                </ul>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.transaction_complete">
+                        <span class="font-bold">Done</span>
+                    </a>
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                      <i class="fa fa-fw fa-angle-right text"></i>
+                      <i class="fa fa-fw fa-angle-down text-active"></i>
+                    </span>
+                    <span>Catalog</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.zoneCatalog">
+                        <span class="font-bold">Zone Catalog</span>
+                    </a>
+                    <a ui-sref="app.service_done">
+                        <span class="font-bold">Catalog Japanese</span>
+                    </a>
+                    <a ui-sref="app.service_done">
+                        <span class="font-bold">Catalog Business</span>
+                    </a>
+                </ul>
+            </li>
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+              </span>
+                    <span>Supplier</span>
+                </a>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.suppl_acct">
+                        <span class="font-bold">Account</span>
+                    </a>
+                </ul>
+                <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.new_products">
+                        <span class="font-bold">Product</span>
+                    </a>
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.zmhotelacc_tablet">
+                    <span class="font-bold">Hotel</span>
+                </a>
+            </li>
+                <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+              </span>
+
+              <span >Zone</span>
+            </a>
+            <ul class="nav-sub" ui-sref-active="active">
+              <a ui-sref="app.new_products">
+             <span class="font-bold">New Product</span>
+              </a>
+            </ul>
+            <ul class="nav-sub" ui-sref-active="active">
+              <a ui-sref="app.service_pending">
+             <span class="font-bold">Edit Product</span>
+              </a>
+            </ul>
+            <ul class="nav-sub" ui-sref-active="active">
+              <a ui-sref="app.service_done">
+             <span class="font-bold">ProductDetails</span>
+              </a>
+            </ul>
+            <ul class="nav-sub" ui-sref-active="active">
+              <a ui-sref="app.service_done">
+             <span class="font-bold">Supplier Product</span>
+              </a>
+            </ul>
+          </li> -->
+         <!--  <li ui-sref-active="active">
+              <a ui-sref="app.zmhotelacc_list">
+                <span class="font-bold" >Hotels</span>
+              </a>
+          </li> -->
+          <li ui-sref-active="active">
+              <a ui-sref="app.manager_tablet">
+                <span class="font-bold" >Tablets Status</span>
+              </a>
+          </li>
+    </ul>
+
+
+        <!-- ExecutiveManager NavBar -->
+            <ul class="nav"  ng-if="user.scope =='ExecutiveManager'">
+                <li ui-sref-active="active">
+                    <a>
+                        <span class="font-bold">Dashboard</span>
+                    </a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="app.EMAccounts">
+                        <span class="font-bold">Accounts</span>
+                    </a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="app.EMTablets">
+                        <span class="font-bold">Tablet</span>
+                    </a>
+                </li>
+
+                <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                        <span>Account</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">
+                        <a ui-sref="app.execMgrAccV">
+                            <span class="font-bold"> Visualisation</span>
+                        </a>
+                    </ul>
+                </li> -->
+
+                <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                        <span>Zone</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">
+                        <a ui-sref="app.zonesList">
+                            <span class="font-bold">Zones List</span>
+                        </a>
+                        <a ui-sref="app.execAccount">
+                            <span class="font-bold">Zone Manager Account Creation</span>
+                        </a>
+                        <a ui-sref="app.hotelList">
+                            <span class="font-bold">Zone Managers List</span>
+                        </a>
+                    </ul>
+                </li>
+
+                <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                        <span>Logistic Agent</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">
+                         <a ui-sref="app.logisticAgentAccount">
+                            <span class="font-bold">Account Creation</span>
+                        </a>
+                        <a ui-sref="app.logisticAgentsList">
+                            <span class="font-bold">Logistic Agents List</span>
+                        </a>
+                    </ul>
+                </li> -->
+
+                <!-- <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                        <span>Hotel</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">
+                        <a ui-sref="app.hotelAccount">
+                            <span class="font-bold">Account Creation</span>
+                        </a>
+                        <a ui-sref="app.hotelList">
+                            <span class="font-bold">Hotels List</span>
+                        </a>
+                    </ul>
+                </li>
+
+                <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                        <span>Hotel Manager</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">      
+                        <a ui-sref="app.hotelMgrAccount">
+                            <span class="font-bold">Account Creation</span>
+                        </a>
+                        <a ui-sref="app.managersList">
+                            <span class="font-bold">Hotel Managers List</span>
+                        </a>
+                    </ul>
+                </li>
+
+                <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                        <i class="fa fa-fw fa-angle-right text"></i>
+                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                      </span>
+                        <span>Service Supplier</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">
+                        <a ui-sref="app.serviceSuppliserAccount">
+                            <span class="font-bold">Account Creation</span>
+                        </a>
+                        <a ui-sref="app.suppliersList">
+                            <span class="font-bold">Service Suppliers List</span>
+                        </a>
+                    </ul>
+                </li> -->
+
+
+<!--                 <li ui-sref-active="active">
+
+               <!--  <li ui-sref-active="active">
+>>>>>>> 4918c01dc2b36b80d1b702af7c3031a31fcd0fa1
+                    <a ui-sref="app.service_done">
+                        <span class="font-bold">Zone Management</span>
+                    </a>
+                </li>
+                <li ng-class="{active:$state.includes('app.ui')}">
+                    <a href class="auto">
+                        <span class="pull-right text-muted">
+                  <i class="fa fa-fw fa-angle-right text"></i>
+                  <i class="fa fa-fw fa-angle-down text-active"></i>
+                </span>
+                        <span>Human Resource</span>
+                    </a>
+                    <ul class="nav-sub" ui-sref-active="active">
+                        <a ui-sref="app.service_pending">
+                            <span class="font-bold">Zone Manager</span>
+                        </a>
+                    </ul>
+                    <ul class="nav-sub" ui-sref-active="active">
+                        <a ui-sref="app.service_done">
+                            <span class="font-bold">Zone Logistic manager</span>
+                        </a>
+                    </ul>
+                </li>
+                <li ui-sref-active="active">
+                    <a>
+                        <span class="font-bold">LogAs</span>
+                    </a>
+                </li> -->
+                <!-- <li ui-sref-active="active">
+                <li ui-sref-active="active">
+                    <a ui-sref="app.execMgrSettings">
+                            <span class="font-bold">Settings</span>
+                        </a>
+                </li> -->
+            </ul>
+        <!-- Customer Navbar -->
+        <ul class="nav"  ng-if="user.scope == 'Customer'">
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Account</span>
+                </a>
+                <!-- <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.customer_accountvis">
+                        <span class="font-bold"> Visualisation</span>
+                    </a>
+                </ul> -->
+            </li>
+        </ul>
+
+
+    <!-- HotelUser -->
+        <ul class="nav" ng-if="user.scope == 'HotelUser'">
+            <li ng-class="{active:$state.includes('app.ui')}">
+                <a href class="auto">
+                    <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
+                    <span>Account</span>
+                </a>
+                <!-- <ul class="nav-sub" ui-sref-active="active">
+                    <a ui-sref="app.hu-account_vis">
+                        <span class="font-bold"> Visualisation</span>
+                    </a>
+                </ul> -->
+            </li>
+        </ul>
+
+
+
+
+
+
+        <!-- <li ng-class="{active:$state.includes('app.table')}">
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <b class="label bg-primary pull-right">2</b>
+      <i class="glyphicon glyphicon-list"></i>
+      <span>Table</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span >Table</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.table.static">
+          <span >Table static</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.table.datatable">
+          <span >Datatable</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.table.footable">
+          <span >Footable</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li ng-class="{active:$state.includes('app.form')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-edit"></i>
+      <span >Form</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>Form</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.elements">
+          <span>Form elements</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.validation">
+          <span>Form validation</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.form.wizard">
+          <span>Form wizard</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li ui-sref-active="active">
+    <a ui-sref="app.chart">
+      <i class="glyphicon glyphicon-signal"></i>
+      <span>Chart</span>
+    </a>
+  </li>
+  <li ng-class="{active:$state.includes('app.page')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-file icon"></i>
+      <span>Pages</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>Pages</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.page.profile">
+          <span>Profile</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.page.post">
+          <span>Post</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.page.search">
+          <span>Search</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.page.invoice">
+          <span>Invoice</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.page.price">
+          <span>Price</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="lockme">
+          <span>Lock screen</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="access.signin">
+          <span>Signin</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="access.signup">
+          <span>Signup</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="access.forgotpwd">
+          <span>Forgot password</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="access.404">
+          <span>404</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="line dk hidden-folded"></li>
+
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">          
+    <span>Your Stuff</span>
+  </li>  
+  <li>
+    <a ui-sref="app.page.profile">
+      <i class="icon-user icon text-success-lter"></i>
+      <b class="badge bg-success dk pull-right">30%</b>
+      <span>Profile</span>
+    </a>
+  </li>
+  <li>
+    <a ui-sref="app.docs">
+      <i class="icon-question icon"></i>
+      <span>Documents</span>
+    </a>
+  </li> -->
+  </ul>
+</div>
+<!-- / third -->

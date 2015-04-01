@@ -1,0 +1,277 @@
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Profile Information</h4>
+        </div>
+        <form class="form-horizontal ng-pristine ng-valid" name="userAccount" novalidate>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Title</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-user" ></span></span>
+                            <select class="form-control" name="prefix" ng-model="acct_info.prefix" ng-options="title.name as title.name for title in titles" required>
+                                <option value="">Select Prefix</option>
+                            </select>
+                            </div>
+                            <span class="error" ng-show="userAccount.prefix.$error.required && submit">Select Prefix</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">First Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="firstName" ng-model="acct_info.firstname" ng-minlength="3" ng-maxlength="25" 
+                            ng-pattern="/^[a-zA-Z& ]*$/" required>
+                        </div>
+                        <span class="error" ng-show="userAccount.firstName.$invalid && submit">Invalid:
+                            <span ng-show="userAccount.firstName.$error.required">Tell us your First Name</span>
+                            <span ng-show="userAccount.firstName.$error.minlength">First name should be minimum of 3 characters</span>
+                            <span ng-show="userAccount.firstName.$error.maxlength">First name should be maximum of 25 characters</span>
+                            <span ng-show="userAccount.firstName.$error.pattern">First name will not allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Last Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="lastName" ng-model="acct_info.lastname" required ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z& ]*$/">
+                        </div>
+                        <span class="error" ng-show="userAccount.lastName.$invalid && submit">Invalid:
+                            <span ng-show="userAccount.lastName.$error.required">Tell us your Last Name</span>
+                            <span ng-show="userAccount.lastName.$error.minlength">Last name should be minimum of 3 characters</span>
+                            <span ng-show="userAccount.lastName.$error.maxlength">Last name should be maximum of 25 characters</span>
+                            <span ng-show="userAccount.lastName.$error.pattern">Last name will not allow numbers and special characters</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Mobile No.</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-mobile"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="mobile" ng-model="acct_info.phone" ng-minlength="9" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="userAccount.mobile.$invalid && submit">Invalid:
+                            <span ng-show="userAccount.mobile.$error.required">Phone is required</span>
+                            <span ng-show="userAccount.mobile.$error.minlength">Phone Number should be minimum of 10 digit</span>
+                            <span ng-show="userAccount.mobile.$error.maxlength">Phone Number should be maximum of 12 digit</span>
+                            <span ng-show="userAccount.mobile.$error.pattern">Phone Number should have digits only</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Email Address</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="email" class="form-control" name="email" ng-model="acct_info.email" ng-disabled="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Prefered Language</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-bullhorn"></span></span>
+                            <select class="form-control" name="language" ng-model="acct_info.preferedLanguage" ng-options="language.code as language.language for language in languagesList" required>
+                                <option value="">Select Language</option>
+                            </select>
+                        </div>
+                        <span class="error" ng-show="userAccount.language.$error.required && submit">Select Language</span>
+                    </div>
+                </div>
+
+                <tabset class="tab-container">
+                    <tab heading="Home Address">
+                        <div class="scrollable-div "> 
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Unit</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.homeAddress.unit" name="unitH" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.unitH.$error.minlength && submit">Unit should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.unitH.$error.maxlength && submit">Unit  should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.unitH.$error.pattern && submit">Unit  will not allow special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Building</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.homeAddress.building" name="buildingH" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.buildingH.$error.minlength && submit">Building name should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.buildingH.$error.maxlength && submit">Building name should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.buildingH.$error.pattern && submit">Building name will not allow special characters</span>
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Street</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.homeAddress.street" name="streetH" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.streetH.$error.minlength 
+                                    && submit">Street name should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.streetH.$error.maxlength 
+                                    && submit">Street name should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.streetH.$error.pattern && submit">Street name will not allow special characters</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">City</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.homeAddress.city" name="cityH" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.cityH.$error.minlength && submit">City name should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.cityH.$error.maxlength && submit">City name should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.cityH.$error.pattern && submit">City name will not allow special characters</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Region</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.homeAddress.region" name="regionH" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.regionH.$error.minlength 
+                                    && submit">Region should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.regionH.$error.maxlength 
+                                    && submit">Region should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.regionH.$error.pattern && submit">Region will not allow special characters</span>
+                                    </span>
+                                </div>
+                            </div>   
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Country</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <select class="form-control" name="countryH" ng-model="acct_info.homeAddress.country" ng-options="country.code as country.name for country in countriesList">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Address Code</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.homeAddress.addressCode" name="addresscodeH" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    <span class="error" ng-show="userAccount.addresscodeH.$error.minlength && submit">AddressCode should be minimum of 10 digit</span>
+                                    <span class="error" ng-show="userAccount.addresscodeH.$error.maxlength && submit">AddressCode should be maximum of 12 digit</span>
+                                    <span class="error" ng-show="userAccount.addresscodeH.$error.pattern && submit">AddressCode will not allow special digit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Office Address">
+                        <div class="scrollable-div ">
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Unit</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.officeAddress.unit" name="unitO" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.unitO.$error.minlength && submit">Unit should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.unitO.$error.maxlength && submit">Unit  should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.unitO.$error.pattern && submit">Unit  will not allow special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Building</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.officeAddress.building"name="buildingO" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.buildingO.$error.minlength && submit">Building name should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.buildingO.$error.maxlength && submit">Building name should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.buildingO.$error.pattern 
+                                    && submit">Building name will not allow special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Street</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.officeAddress.street" name="streetO" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.streetO.$error.minlength 
+                                    && submit">Street name should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.streetO.$error.maxlength 
+                                    && submit">Street name should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.streetO.$error.pattern 
+                                    && submit">Street name will not allow special characters</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">City</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.officeAddress.city" name="cityO" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.cityO.$error.minlength && submit">City name should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.cityO.$error.maxlength && submit">City name should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.cityO.$error.pattern && submit">City name will not allow special characters</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Region</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.officeAddress.region"  name="regionO" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/">
+                                    <span class="error" ng-show="userAccount.regionO.$error.minlength 
+                                    && submit">Region should be minimum of 3 characters</span>
+                                    <span class="error" ng-show="userAccount.regionO.$error.maxlength 
+                                    && submit">Region should be maximum of 25 characters</span>
+                                    <span class="error" ng-show="userAccount.regionO.$error.pattern && submit">Region will not allow special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Country</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <select class="form-control" name="countryO" ng-model="acct_info.officeAddress.country" ng-options="country.code as country.name for country in countriesList">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-5 control-label">Address Code</label>
+                                <div class="col-md-9 col-xs-7">
+                                    <input type="text" class="form-control" ng-model="acct_info.officeAddress.addressCode" name="addresscodeO" ng-minlength="6" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ ">
+                                    <span class="error" ng-show="userAccount.addresscodeO.$error.minlength && submit">AddressCode should be minimum of 6 digit</span>
+                                    <span class="error" ng-show="userAccount.addresscodeO.$error.maxlength && submit">AddressCode should be maximum of 12 digit</span>
+                                    <span class="error" ng-show="userAccount.addresscodeO.$error.pattern && submit">AddressCode will not allow special digit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>    
+                </tabset>
+            </div>
+
+            <div class="panel-footer">
+                <button type="reset" class="btn btn-default">Clear Form</button>
+                <button class="btn btn-info pull-right" ng-click="updateAccount(acct_info, userAccount.$valid)">Update</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wrapper-md">
+    <div class="panel panel-default  m-b-s">
+        <div class="panel-heading">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Change Password</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <p>
+                    <div ng-include="'app/LogisticAgent/logistic/change-password.html'"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

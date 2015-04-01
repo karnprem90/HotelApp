@@ -1,0 +1,39 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading wrapper b-b b-light">
+            <h4 class="font-thin m-t-none m-b-none text-muted">Product Details</h4>
+        </div>
+        <div class="panel-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Available Quantity</th>
+                            <th>Product ID</th>
+                            <th>Cost Price</th>
+                            <th>Retail Price</th>
+                            <th>Stock</th>
+                            <th>Picture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="details in productData">
+                            <td>{{details.name}}</td>
+                            <td>{{details.costPrice}}</td>
+                            <td>{{details.}}</td>
+                            <td>{{details.}}</td>
+                            <td>{{details.}}</td>
+                            <td>{{details.}}</td>
+                            <td>{{details.}}</td>
+                            <td>{{details.}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

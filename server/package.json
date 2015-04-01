@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "async": "^0.9.0",
+    "boom": "^2.6.1",
+    "chai": "^2.0.0",
+    "country-list": "0.0.3",
+    "csvtojson": "^0.3.18",
+    "formidable": "^1.0.17",
+    "fs": "0.0.2",
+    "gravatar": "^1.1.0",
+    "hapi": "7.0.0",
+    "hapi-auth-jwt": "^1.0.0",
+    "joi": "4.x.x",
+    "jshint": "^2.6.3",
+    "jsonwebtoken": "^3.2.0",
+    "language-list": "0.0.3",
+    "moment": "^2.9.0",
+    "mongoose": "^3.8.23",
+    "mongoose-auto-increment": "^3.2.0",
+    "mongoose-validators": "^0.1.0",
+    "nodemailer": "^0.7.1",
+    "nodemon": "^1.3.7",
+    "winston": "^0.8.3"
+  },
+  "description": "Hapijs JWT POC",
+  "engines": {
+    "node": ">=0.10.22"
+  },
+  "main": "server",
+  "name": "jwt-auth-poc",
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.1.0"
+}

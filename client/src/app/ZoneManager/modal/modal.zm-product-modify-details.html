@@ -1,0 +1,254 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="defModalHead">Edit Details</h4>
+</div>
+<div class="modal-body">
+
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-5">
+
+                <form  class="form-horizontal">
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3 class="text-center"><strong>Product ID :</strong>{{product_details._id}} </h3>
+
+                            <div class="text-center" id="user_image">
+                                <img src="assets/images/users/user2.jpg" class="img-thumbnail">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-xs-12">
+                                <a href="" class="btn btn-primary btn-block btn-rounded" data-toggle="modal" data-target="#modal_change_photo">Upload Photos</a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body form-group-separated">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>By</th>
+
+                                            <th>Modified On</th>
+
+                                            <th>Created On</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-md-8 col-sm-8 col-xs-7">
+
+                <form class="form-horizontal">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-body scrollable-div1">
+
+
+                             <div class="form-group">
+                                <label class="col-sm-3 control-label">Categories</label>
+                                <div class="col-sm-9">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Enter product name" name="category" required ng-model="categor">
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-info" ng-click="edit_category(categor)">add</button>
+                                                </td>
+                                            </tr>
+                                            <tr height="50px" ng-repeat="cat in product_detail.category">
+                                                <td>
+                                                    <input type="text" class="form-control" name="event" required ng-model="cat" ng-readonly="true">
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-danger" ng-click="remove_editcategory($index)">remove</button>
+                                                </td>
+                                            </tr>
+                                            <!-- ngRepeat: event in event_list track by $index -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Enter product name" name="product_name" ng-model="product_detail.name" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/"> 
+                                </div>
+                                <div class="error" ng-show="createPr.product_name.$dirty && createPr.product_name.$invalid">Invalid:
+                                    <span ng-show="createPr.product_name.$error.required">Tell us your Product Name</span>
+                                    <span ng-show="createPr.product_name.$error.$error.minlength">Product Name should be minimum of 3 characters</span>
+                                    <span ng-show="createPr.product_name.$error.maxlength">Product Name should be maximum of 25 characters</span>
+                                    <span ng-show="createPr.product_name.$error.pattern">Product Name won't allow numbers and special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Enter product type" name="product_type" ng-model="product_detail.productType" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/"> 
+                                </div>
+                                <div class="error" ng-show="createPr.product_type.$dirty && createPr.product_type.$invalid">Invalid:
+                                    <span ng-show="createPr.product_type.$error.required">Tell us your Product Name</span>
+                                    <span ng-show="createPr.product_type.$error.$error.minlength">Product Name should be minimum of 3 characters</span>
+                                    <span ng-show="createPr.product_type.$error.maxlength">Product Name should be maximum of 25 characters</span>
+                                    <span ng-show="createPr.product_type.$error.pattern">Product Name won't allow numbers and special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Enter section" name="section" ng-model="product_detail.section" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/"> 
+                                </div>
+                                <div class="error" ng-show="createPr.section.$dirty && createPr.section.$invalid">Invalid:
+                                    <span ng-show="createPr.section.$error.required">Tell us your Section</span>
+                                    <span ng-show="createPr.section.$error.$error.minlength">Section should be minimum of 3 characters</span>
+                                    <span ng-show="createPr.section.$error.maxlength">Section should be maximum of 25 characters</span>
+                                    <span ng-show="createPr.section.$error.pattern">Section won't allow numbers and special characters</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-12 col-xs-12">
+                                    <textarea type="text" class="form-control" placeholder="Enter Product Description" name="productdescr" ng-model="product_detail.description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Enter Warranty Details if any" name="warranty" ng-model="product_detail.warrantyCondition">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Width" class="form-control" name="width" ng-model="product_detail.dimension.width">
+                                </div>
+
+                                <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Depth" class="form-control" name="depth" ng-model="product_detail.dimension.depth">
+                                </div>
+
+                                <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Height" class="form-control" name="height" ng-model="product_detail.dimension.height">
+                                </div>
+                                 <div class="col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Unit" class="form-control" name="unit" ng-model="product_detail.dimension.unit">
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-offset-6 col-md-3 col-xs-7">
+                                    <input type="text" placeholder="Weight" class="form-control" name="weight" ng-model="product_detail.weight.value">
+                                </div>
+
+                                <div class="col-md-3 col-xs-7">
+                                    <select class="form-control select" ng-model="product_detail.weight.unit">
+                                        <option>kg</option>
+                                        <option>Kids</option>
+                                        <option>3 Star</option>
+                                        <option>4 Star</option>
+                                        <option>5 Star</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+
+                            <div class="col-md-9">
+                                <!-- <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">Supplier</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <select class="form-control select" ng-model="product_details.supplierId">
+                                        </select>
+                                    </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">Cost of Goods Sold</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="number" name="costprice" class="form-control" ng-model="product_detail.costPrice">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">VAT</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="number" class="form-control" name="vat" ng-model="product_detail.vatPercent">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">Retail Price</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="number" name="retailprice" class="form-control" ng-model="product_detail.retailPrice">
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-5 ">In Stock</label>
+                                    <div class="col-md-9 col-xs-7">
+                                        <input type="number" name="stock" class="form-control" ng-model="product_detail.stock">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3">
+                                <p>
+                                    <label class="check">
+                                        <input type="checkbox" class="icheckbox" checked="product_detail.isActive" > Active</label>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END TABS -->
+                </form>
+
+            </div>
+        </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-Primary" data-dismiss="modal" ng-click="saveEditProduct(product_detail, product_detail._id)">Save</button>
+</div>

@@ -1,0 +1,111 @@
+<!-- <div class="bg-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Hotel Account List</h1>
+</div> -->
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading wrapper b-b b-light">
+                    <h4 class="panel-title font-thin m-t-none m-b-none text-muted">Hotel Account List </h3>  
+                </div>
+                <div class="panel-body">                                       
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label">by Name</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input type="text" value="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label">by Category</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input type="text" value="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-5 control-label">by Rating</label>
+                                <div class="col-md-5 col-xs-7">
+                                    <input type="text" value="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label">by Business Value</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input type="text" value="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body form-group-separated">
+                    <div ng-show="hotel_list.length == 0">
+                        <h4>There are no hotels in this zone</h4>
+                    </div>
+                    <div class="table-responsive" >
+                        <div ng-show="hotel_list.length == 0">
+                            <h4>There are no hotel managers in this zone</h4>
+                        </div>
+                        <table class="table table-bordered" ng-show="hotel_list.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Hotel ID</th>
+                                    <th>Name</th>
+                                    <th>Category</th>        
+                                    <th>Email Address</th>
+                                    <th>Telephone</th>
+                                    <th>Fax</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="hotel in hotel_list">
+                                  <td>{{$index+1}}</td>
+                                  <td>{{hotel.id}}</td>
+                                  <td>
+                                    <span editable-text="hotel.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, hotel.name)"e-required>{{hotel.name}}</span>
+                                  </td>
+                                  <td>
+                                    <span editable-text="hotel.category" e-name="category" e-form="rowform" onbeforesave="checkName($data, hotel.category)" e-required>
+                                      {{ hotel.category}}
+                                    </span>
+                                  </td>
+                                  <td>
+                                      <span editable-text="hotel.email" e-name="email" e-form="rowform" e-required>{{hotel.email}}</span>
+                                  </td>
+                                  <td>
+                                      <span editable-text="hotel.telephone" e-name="telephone" e-form="rowform" onbeforesave="checkPhone($data)" e-required>{{hotel.telephone}}</span>
+                                  </td>
+                                  <td>
+                                      <span editable-text="hotel.fax" e-name="fax" e-form="rowform" onbeforesave="checkPhone($data)" e-required>{{hotel.fax}}</span>
+                                  </td>
+                                  <td style="white-space: nowrap">
+                                    <form editable-form name="rowform" onbeforesave="updateHotelDetails(hotel)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == hotel">
+                                      <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-info btn-xs">
+                                        update
+                                      </button>
+                                      <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default btn-xs">
+                                        cancel
+                                      </button>
+                                    </form>
+                                    <div class="buttons" ng-show="!rowform.$visible">
+                                      <button class="btn btn-primary btn-xs" ng-click="rowform.$show()">edit</button>
+                                      <!-- <button class="btn btn-danger" ng-click="removeUser($index)">del</button> -->
+                                    </div>  
+                                  </td>
+                                </tr>
+                              </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

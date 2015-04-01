@@ -1,0 +1,28 @@
+<script type="text/ng-template" id="addEmailModal.html">
+    <div class="modal-header">
+        <h4 class="modal-title" id="addEmail">Add Email</h4>
+    </div>
+    <div class="modal-body">
+        <div class="page-content-wrap">
+            <form name="emailForm" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Email</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span><b> @ </b></span></span>
+                            <input type="email" class="form-control" name="email" ng-model="details" required>
+                        </div>
+                        <span class="error" ng-show="emailForm.email.$error.required 
+                        && submitted">Email Field is required</span>
+                        <span class="error" ng-show="emailForm.email.$error.email && submitted">Tell us your Valid Email</span>
+                    </div>
+                </div>           
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary "  ng-click="updateEmailList(details, emailForm.$valid)" >Ok</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+<button class="btn btn-default alertBtn" ng-click="addEmailAccount('md')">Add</button>

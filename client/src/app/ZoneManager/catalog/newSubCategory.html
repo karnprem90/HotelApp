@@ -1,0 +1,42 @@
+<script type="text/ng-template" id="subCategoryModal.html">
+    <div class="modal-header">
+        <h4 class="modal-title" id="subCategoryModal1">Create Sub-category</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal ng-pristine ng-valid" name="subCategoryModal" novalidate>
+            <div class="panel-body">
+                <div class="form-group">
+                  <label class="col-md-4 col-xs-12 control-label">Category</label>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-list-alt"></span></span>
+                        <select class="form-control" name="category" ng-model="subCategory.category" ng-options="cat._id as cat.categoryName for cat in category_list"  required>
+                          <option value="">Select category</option>
+                      </select>
+                    </div>
+                    <span class="error" ng-show="subCategoryModal.category.$error.required && submitted">Invalid: Select category</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 col-xs-12 control-label">Sub-category Name</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            <input type="text" class="form-control" name="subCategory" ng-model="subCategory.subCategoryName" ng-minlength="3" required>
+                        </div>
+                        <span class="error" ng-show="subCategoryModal.subCategory.$invalid && submitted">Invalid:
+                            <span ng-show="subCategoryModal.subCategory.$error.required">Tell us sub-category name</span>
+                            <span ng-show="subCategoryModal.subCategory.$error.minlength">Sub-category name should be minimum of 3 characters</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+        <button class="btn btn-primary"  ng-click="create(subCategory, subCategoryModal.$valid)" >Create</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+

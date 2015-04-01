@@ -1,0 +1,29 @@
+<script type="text/ng-template" id="addphoneModal.html">
+    <div class="modal-header">
+        <h4 class="modal-title" id="addEmail">Add Phone</h4>
+    </div>
+    <div class="modal-body">
+        <div class="page-content-wrap">
+            <form name="phoneForm" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Phone</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input type="text" class="form-control" placeholder="" name="phone" ng-model="details" ng-minlength="10" ng-maxlength="12" ng-pattern=" /^[0-9]+$/ " required>
+                        </div>
+                        <span class="error" ng-show="phoneForm.phone.$error.required && submitted">Phone is required</span>
+                        <span class="error" ng-show="phoneForm.phone.$error.minlength && submitted">Phone Number should be minimum of 10 digit</span>
+                        <span class="error" ng-show="phoneForm.phone.$error.maxlength && submitted">Phone Number should be maximum of 12 digit</span>
+                        <span class="error" ng-show="phoneForm.phone.$error.pattern && submitted">Phone Number should have digits only<span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary "  ng-click="updatePhoneList(details, phoneForm.$valid)" >Ok</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+ </script>
+    <button class="btn btn-default alertBtn" ng-click="addphoneAccount('md')">Add</button>
